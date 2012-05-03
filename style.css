@@ -1,3 +1,11 @@
 #create-button {
   display: block;
 }
+
+.day-container {
+  padding-left: 20px;
+}
+
+.meal-container {
+  padding-left: 10px;
+}
