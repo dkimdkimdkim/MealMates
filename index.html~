@@ -1,9 +1,226 @@
+<!DOCTYPE html> 
 <html>
+
   <head>
-    <title>
-      MealMates
-    </title>
-  </head>
-  <body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>MealMates!</title> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script>
+      $(function() {
+
+        function touchHandler(event)
+        {
+          var touches = event.changedTouches,
+          first = touches[0],
+          type = "";
+
+          switch(event.type)
+          {
+            case "touchstart": type = "mousedown"; break;
+            case "touchmove":  type="mousemove"; break;        
+            case "touchend":   type="mouseup"; break;
+            default: return;
+          }
+
+          // initMouseEvent(type, canBubble, cancelable, view, clickCount,
+          //                screenX, screenY, clientX, clientY, ctrlKey,
+          //                altKey, shiftKey, metaKey, button, relatedTarget);
+
+          var simulatedEvent = document.createEvent("MouseEvent");
+          simulatedEvent.initMouseEvent(type, true, true, window, 1,
+          first.screenX, first.screenY,
+          first.clientX, first.clientY, false,
+          false, false, false, 0, null);
+
+          first.target.dispatchEvent(simulatedEvent);
+          event.preventDefault();
+        }
+
+        function init()
+        {
+          document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
+          document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
+          //$('.drag-page').addEventListener("touchmove", touchHandler, true);
+          //$('.drag-page').addEventListener("touchend", touchHandler, true);
+          //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
+        }
+        init();
+        $(".draggable").draggable({
+          revert: true,
+          zIndex: 10,
+        });
+        $(".droppable").droppable({
+          activeClass: "draggable",
+          drop: handleDroppable,
+        });
+        $(".rankDrop").droppable({
+          activeClass: "draggable",
+          drop: handleRankDrop,
+        });
+
+        function handleDroppable(event, ui) {
+          console.log(this);
+          $(this).append(ui.draggable);
+          ui.draggable.draggable( 'option', 'revert', false );
+          ui.draggable.css({'position':'static'});
+        }
+
+        function handleRankDrop(event, ui) {
+          console.log(this);
+          $(this).droppable( 'disable' );
+          $(this).append(ui.draggable);
+          ui.draggable.draggable( 'option', 'revert', false );
+          ui.draggable.css({position:'static'});
+        }
+        $('#calendar-input').datepicker();
+        $('.am-pm-toggle').click(function() {
+          if($(this).text() == 'AM') {
+            $(this).html('PM');
+          }
+          else {
+            $(this).html('AM');
+          }
+        });
+        $('#confirm-meal-button').click(function() {
+	alert('Success! Your invitations have been sent.');
+          /*
+          var newMeal = $('<div>');
+            newMeal.html('<h2>March 14th</h2><div class="single-meal"><a data-role="button" data-transition="fade" href="#page1">Ice Ice Baby</a><div class="meal-time"><b>From 7:00 pm to 8:30 pm at:</b></div><a data-role="button" data-transition="fade" href="#page1">Oishii</a></div></div>');
+          $('#home-meals').append(newMeal);
+          */
+ 	 });
+	$('#cancel-meal').click(function() {
+	alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+ 	 });
+
+      });
+    </script>
+  </head> 
+
+
+  <body> 
+
+    <!-- Start of first page: #one -->
+    <div data-role="page" id="welcome">
+
+      <div data-role="header">
+        <h1>Hi, Justin!</h1>
+      </div><!-- /header -->
+
+      <div data-role="content" >  
+        <h2>Upcoming Meals</h2>
+        <div class="meal-container">
+          <h3>Tomorrow</h3>
+          <a href="#" data-role="button" data-inline="true">Family Dinner</a>
+          at
+          <a href="#" data-role="button" data-inline="true">Oishii</a>
+
+        </div>
+
+        <h3>Show internal pages:</h3>
+        <p><a href="#two" data-role="button">Show page "two"</a></p>  
+        <p><a href="#popup"data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
+      </div><!-- /content -->
+
+      <div data-role="footer" data-position="fixed">
+        <a id="create-button" href="#what" data-role="button">Create a New Meal</a>
+        <h1>Meal Mates</h1>
+      </div>
+    </div><!-- /page one -->
+
+
+    <!-- Start of second page: #two -->
+    <div data-role="page" id="two" data-theme="a">
+
+      <div data-role="header">
+        <h1>Two</h1>
+      </div><!-- /header -->
+
+      <div data-role="content" data-theme="a">  
+        <h2>Two</h2>
+        <p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>  
+        <p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>  
+        <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>  
+
+      </div><!-- /content -->
+
+      <div data-role="footer">
+        <h4>Page Footer</h4>
+      </div><!-- /footer -->
+    </div><!-- /page two -->
+
+
+    <!-- Start of third page: #popup -->
+    <div data-role="page" id="popup">
+
+      <div data-role="header" data-theme="e">
+        <h1>Dialog</h1>
+      </div><!-- /header -->
+
+      <div data-role="content" data-theme="d">  
+        <h2>Popup</h2>
+        <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>    
+        <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>  
+      </div><!-- /content -->
+
+      <div data-role="footer">
+        <h4>Page Footer</h4>
+      </div><!-- /footer -->
+    </div><!-- /page popup -->
+
+    <div data-role="page" id="What">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#What" class="ui-btn-active">
+              What
+            </a>
+            </li>
+            <li>
+            <a href="#When">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <label for="TitleInput">
+              Title:
+            </label>
+            <input id="TitleInput" placeholder="What is this meal called?" value="" type="text" />
+          </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <label for="DescriptionInput">
+              Description:
+            </label>
+            <input id="DescriptionInput" placeholder="What is this meal about?" value="" type="text" height="400px" />
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
