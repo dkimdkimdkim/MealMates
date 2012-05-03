@@ -172,22 +172,17 @@
       </div><!-- /footer -->
     </div><!-- /page popup -->
 
-    <div data-role="page" id="What">
+    <div data-role="page" id="Where">
       <div data-role="content">
         <div data-role="navbar" data-iconpos="top">
           <ul>
-            <li>
-            <a href="#What" class="ui-btn-active">
-              What
-            </a>
-            </li>
             <li>
             <a href="#When">
               When
             </a>
             </li>
             <li>
-            <a href="#Where">
+            <a href="#Where" class="ui-btn-active">
               Where
             </a>
             </li>
@@ -203,22 +198,7 @@
             </li>
           </ul>
         </div>
-        <div data-role="fieldcontain">
-          <fieldset data-role="controlgroup">
-            <label for="TitleInput">
-              Title:
-            </label>
-            <input id="TitleInput" placeholder="What is this meal called?" value="" type="text" />
-          </fieldset>
-        </div>
-        <div data-role="fieldcontain">
-          <fieldset data-role="controlgroup">
-            <label for="DescriptionInput">
-              Description:
-            </label>
-            <input id="DescriptionInput" placeholder="What is this meal about?" value="" type="text" height="400px" />
-          </fieldset>
-        </div>
+ 
       </div>
     </div>
 
