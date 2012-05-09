@@ -86,16 +86,11 @@
           }
         });
         $('#confirm-meal-button').click(function() {
-	alert('Success! Your invitations have been sent.');
-          /*
-          var newMeal = $('<div>');
-            newMeal.html('<h2>March 14th</h2><div class="single-meal"><a data-role="button" data-transition="fade" href="#page1">Ice Ice Baby</a><div class="meal-time"><b>From 7:00 pm to 8:30 pm at:</b></div><a data-role="button" data-transition="fade" href="#page1">Oishii</a></div></div>');
-          $('#home-meals').append(newMeal);
-          */
- 	 });
-	$('#cancel-meal').click(function() {
-	alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
- 	 });
+          alert('Success! Your invitations have been sent.');
+        });
+        $('#cancel-meal').click(function() {
+          alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+        });
 
       });
     </script>
@@ -113,22 +108,18 @@
 
       <div data-role="content" >  
         <h2>Upcoming Meals</h2>
-        <div class="meal-container">
-          <h3>Tomorrow</h3>
-          <a href="#" data-role="button" data-inline="true">Family Dinner</a>
-          at
-          <a href="#" data-role="button" data-inline="true">Oishii</a>
-
+        <div class="day-container">
+          <h3>Wednesday, May 16</h3>
+          <div class="meal-container">
+            <div class="restaurant-button-container"><a class="restaurant-button" href="#" data-role="button" data-inline="true">Cafeteria</a></div>
+            <span class="time-window">at <strong>7:00pm</strong></span>
+          </div>  
         </div>
-
-        <h3>Show internal pages:</h3>
-        <p><a href="#two" data-role="button">Show page "two"</a></p>  
-        <p><a href="#popup"data-role="button" data-rel="dialog" data-transition="pop">Show page "popup" (as a dialog)</a></p>
       </div><!-- /content -->
 
       <div data-role="footer" data-position="fixed">
         <a id="create-button" href="#what" data-role="button">Create a New Meal</a>
-        <h1>Meal Mates</h1>
+        <h1>MealMates</h1>
       </div>
     </div><!-- /page one -->
 
@@ -172,27 +163,126 @@
       </div><!-- /footer -->
     </div><!-- /page popup -->
 
+<div data-role="page" id="When">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="When" data-theme="" data-icon="" class="ui-btn-active">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <h1 id="select-time-header">
+          Select a date and times that work for you:
+        </h1>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" type="text" />
+          </fieldset>
+        </div>
+        <h2 id="available-header">
+          I'm available from:
+        </h2>
+        <table id="time-table">
+          <tr>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput6" class="time-number" placeholder="HH" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td class="grammar-colon">
+              :
+            </td>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput7" class="time-number" placeholder="MM" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td>
+              <a data-role="button" data-transition="fade" class="am-pm-toggle">
+                AM
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            to:
+          </tr>
+
+          <tr>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput6" placeholder="HH" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td class="grammar-colon">
+              :
+            </td>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput7" class="time-number" placeholder="MM" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td>
+              <a data-role="button" data-transition="fade" class="am-pm-toggle">
+                AM
+              </a>
+            </td>
+          </tr>
+
+        </table>
+        <a data-role="button" data-transition="fade" href="#page10">
+          Add another time
+        </a>
+      </div>
+    </div>
+
     <div data-role="page" id="Where">
       <div data-role="content">
         <div data-role="navbar" data-iconpos="top">
           <ul>
             <li>
-            <a href="#When">
+            <a href="#When"  data-theme="" data-icon="">
               When
             </a>
             </li>
             <li>
-            <a href="#Where" class="ui-btn-active">
+            <a href="#Where"  data-theme="" data-icon="" class="ui-btn-active">
               Where
             </a>
             </li>
             <li>
-            <a href="#Who">
+            <a href="#Who"  data-theme="" data-icon="">
               Who
             </a>
             </li>
             <li>
-            <a href="#Confirm">
+            <a href="#Confirm"  data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -240,22 +330,26 @@
           <div class="ui-block-b">
             <div>
               <b>
-                1.
-                <br />
-                <br />
-                2.
-                <br />
-                <br />
-                3.
-                <br />
-                <br />
-                4.
-                <br />
-                <br />
-                5.
-                <br />
+	           <div class="numberList">	      
+			   1.
+		   </div>
+		   <div class="numberList">	      
+			   2.
+		   </div>
+		   <div class="numberList">	      
+			   3.
+		   </div>
+		   <div class="numberList">	      
+			   4.
+		   </div>
+		   <div class="numberList">	      
+			   5.
+		   </div>
               </b>
-            </div>
+      	    </div>
+	    <button id="addMoreRestaurants">
+		    Rank more restaurants
+	    </button>
           </div>
         </div>
       </div>

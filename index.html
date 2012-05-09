@@ -87,11 +87,6 @@
         });
         $('#confirm-meal-button').click(function() {
           alert('Success! Your invitations have been sent.');
-          /*
-          var newMeal = $('<div>');
-            newMeal.html('<h2>March 14th</h2><div class="single-meal"><a data-role="button" data-transition="fade" href="#page1">Ice Ice Baby</a><div class="meal-time"><b>From 7:00 pm to 8:30 pm at:</b></div><a data-role="button" data-transition="fade" href="#page1">Oishii</a></div></div>');
-          $('#home-meals').append(newMeal);
-          */
         });
         $('#cancel-meal').click(function() {
           alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
@@ -168,27 +163,126 @@
       </div><!-- /footer -->
     </div><!-- /page popup -->
 
+<div data-role="page" id="When">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="When" data-theme="" data-icon="" class="ui-btn-active">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <h1 id="select-time-header">
+          Select a date and times that work for you:
+        </h1>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" type="text" />
+          </fieldset>
+        </div>
+        <h2 id="available-header">
+          I'm available from:
+        </h2>
+        <table id="time-table">
+          <tr>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput6" class="time-number" placeholder="HH" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td class="grammar-colon">
+              :
+            </td>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput7" class="time-number" placeholder="MM" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td>
+              <a data-role="button" data-transition="fade" class="am-pm-toggle">
+                AM
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            to:
+          </tr>
+
+          <tr>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput6" placeholder="HH" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td class="grammar-colon">
+              :
+            </td>
+            <td>
+              <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" class="time-number">
+                  <input id="textinput7" class="time-number" placeholder="MM" value="" type="number" />
+                </fieldset>
+              </div>
+            </td>
+            <td>
+              <a data-role="button" data-transition="fade" class="am-pm-toggle">
+                AM
+              </a>
+            </td>
+          </tr>
+
+        </table>
+        <a data-role="button" data-transition="fade" href="#page10">
+          Add another time
+        </a>
+      </div>
+    </div>
+
     <div data-role="page" id="Where">
       <div data-role="content">
         <div data-role="navbar" data-iconpos="top">
           <ul>
             <li>
-            <a href="#When">
+            <a href="#When"  data-theme="" data-icon="">
               When
             </a>
             </li>
             <li>
-            <a href="#Where" class="ui-btn-active">
+            <a href="#Where"  data-theme="" data-icon="" class="ui-btn-active">
               Where
             </a>
             </li>
             <li>
-            <a href="#Who">
+            <a href="#Who"  data-theme="" data-icon="">
               Who
             </a>
             </li>
             <li>
-            <a href="#Confirm">
+            <a href="#Confirm"  data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -261,6 +355,287 @@
       </div>
       </div>
     </div>
+
+<div data-role="page" id="Who" class="drag-page">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#When" data-theme="" data-icon="">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="" class="ui-btn-active">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                <input id="textinput13" placeholder="" value="" type="text" />
+              </fieldset>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <a data-role="button" data-transition="fade" href="#page6">
+              Search
+            </a>
+          </div>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div>
+              <b>
+                To be invited
+              </b>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div>
+              <b>
+                Invited
+              </b>
+            </div>
+          </div>
+          <div class="droppable" class="ui-block-a" id="left-who">
+            <table class="draggable">
+              <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> AJ Perez </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Akira monri </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Alex Wang </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Brian Bell </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Chris Haid </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> David Kim </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Feynman Liang </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jake Varley </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jimmy Pershken </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mark Zuckerberg </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+            </table>
+
+            <table class="draggable">
+              <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Ron Rosenberg </td></tr>
+            </table>
+
+          </div>
+          <div class="droppable" class="ui-block-b" id="right-who">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div data-role="page" id="Confirm">
+      <div data-role="content">
+		<div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#When" data-theme="" data-icon="">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="" class="ui-btn-active">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <h1>
+        </h1>
+
+        <div class="ui-grid-a">
+          <table align="center" width="100%">
+            <tr>
+              <td>
+
+                <div class="ui-block-b">
+                  <h1>
+                    Ice Ice Baby
+                  </h1>
+                  <div>
+                    <b>
+                      Created by You
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Description:
+                  </h2>
+                  <div>
+                    <b>
+                      Ice cream!
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Time:
+                  </h2>
+                  <div>
+                    <b>
+                      at 5:00 pm on March 3rd
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Location:
+                  </h2>
+                  <div>
+                    <b>
+                      Toscanini's
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Invitees:
+                  </h2>
+                  <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <a data-role="button" data-transition="fade" href="#page2">
+              Start Over
+            </a>
+          </div>
+          <div class="ui-block-b">
+            <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd">
+              Confirm Meal
+            </a>
+            <!--
+            <input id="confirm-meal-button" type="submit" value="Confirm Meal" />
+            -->
+          </div>
+        </div>
+      </div>
+    </div>    
 
   </body>
 </html>
