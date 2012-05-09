@@ -1,3 +1,7 @@
+h2, h3, p {
+  margin: 0;
+}
+
 #create-button {
   display: block;
 }
@@ -8,4 +12,8 @@
 
 .meal-container {
   padding-left: 10px;
+}
+
+.restaurant-button-container {
+  width: 400px;
 }

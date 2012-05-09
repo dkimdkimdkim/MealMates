@@ -86,16 +86,16 @@
           }
         });
         $('#confirm-meal-button').click(function() {
-	alert('Success! Your invitations have been sent.');
+          alert('Success! Your invitations have been sent.');
           /*
           var newMeal = $('<div>');
             newMeal.html('<h2>March 14th</h2><div class="single-meal"><a data-role="button" data-transition="fade" href="#page1">Ice Ice Baby</a><div class="meal-time"><b>From 7:00 pm to 8:30 pm at:</b></div><a data-role="button" data-transition="fade" href="#page1">Oishii</a></div></div>');
           $('#home-meals').append(newMeal);
           */
- 	 });
-	$('#cancel-meal').click(function() {
-	alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
- 	 });
+        });
+        $('#cancel-meal').click(function() {
+          alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+        });
 
       });
     </script>
@@ -114,21 +114,17 @@
       <div data-role="content" >  
         <h2>Upcoming Meals</h2>
         <div class="day-container">
-          <h3>Tomorrow</h3>
+          <h3>Wednesday, May 16</h3>
           <div class="meal-container">
-            <p>
-              <a href="#" data-role="button" data-inline="true">Family Dinner</a>
-              at
-              <a href="#" data-role="button" data-inline="true">Oishii</a>
-              From 7:00pm to 8:30pm
-            </p>
+            <div class="restaurant-button-container"><a class="restaurant-button" href="#" data-role="button" data-inline="true">Cafeteria</a></div>
+            <span class="time-window">at <strong>7:00pm</strong></span>
           </div>  
         </div>
       </div><!-- /content -->
 
       <div data-role="footer" data-position="fixed">
         <a id="create-button" href="#what" data-role="button">Create a New Meal</a>
-        <h1>Meal Mates</h1>
+        <h1>MealMates</h1>
       </div>
     </div><!-- /page one -->
 
