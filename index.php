@@ -1,0 +1,685 @@
+<!DOCTYPE html> 
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>MealMates!</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js"></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <script src="jquery-ui-timepicker-addon.js"></script>
+    <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
+    <script>
+      $(function() {
+
+        /**
+        * Load welcome screen from PHP backend.
+        */
+        /*
+        $.get('retrieve_meals.php', function(data) {
+          console.log(data);
+          $.each(data, function(index, entry) {
+            console.log(entry);
+            var dayContainer = $('<div class="day-container"></div>');
+            dayContainer.append($('<h3>' + entry['date']+ '</h3>'))
+            var mealContainer = $('<div class="meal-container ui-grid-a"></div>');
+            var restaurantButtonContainer = $('<div class="restaurant-button-container ui-block-a"></div>');
+            restaurantButtonContainer.append($('<a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true">' + entry['restaurant'] + '</a>'));
+            mealContainer.append(restaurantButtonContainer);
+            dayContainer.append(mealContainer);
+            $('#welcome-content').append(dayContainer);
+          });
+      });
+         */
+        /*
+        <div class="day-container">
+          <h3>Wednesday, May 16</h3>
+          <div class="meal-container ui-grid-a">
+            <div class="restaurant-button-container ui-block-a">
+              <a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true">Cafeteria</a>
+            </div>
+            <span class="time-window ui-block-b">at <strong>7:00pm</strong></span>
+          </div>  
+        </div>
+        */
+
+        function init()
+        {
+          //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
+          //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
+          //$('.drag-page').addEventListener("touchmove", touchHandler, true);
+          //$('.drag-page').addEventListener("touchend", touchHandler, true);
+          //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
+        }
+        init();
+        $(".pep-draggable").pep();
+        init();
+        $(".draggable").draggable({
+          revert: true,
+          zIndex: 10,
+        });
+        $(".droppable").droppable({
+          activeClass: "draggable",
+          drop: handleDroppable,
+        });
+        $(".rankDrop").droppable({
+          activeClass: "draggable",
+          drop: handleRankDrop,
+        });
+
+        function handleDroppable(event, ui) {
+          console.log(this);
+          $(this).append(ui.draggable);
+          ui.draggable.draggable( 'option', 'revert', false );
+          ui.draggable.css({'position':'static'});
+        }
+
+        function handleRankDrop(event, ui) {
+          console.log(this);
+          $(this).droppable( 'disable' );
+          $(this).append(ui.draggable);
+          ui.draggable.draggable( 'option', 'revert', false );
+          ui.draggable.css({position:'static'});
+        }
+        //$('#calendar-input').datepicker('option', 'showAnim', 'slide');
+        $('#calendar-input').datepicker();
+        $('#from-time-input').timepicker({});
+        $('#to-time-input').timepicker({});
+        $('.am-pm-toggle').click(function() {
+          if($(this).text() == 'AM') {
+            $(this).html('PM');
+          }
+          else {
+            $(this).html('AM');
+          }
+        });
+        $('#confirm-meal-button').click(function() {
+          alert('Success! Your invitations have been sent.');
+        });
+        $('#cancel-meal').click(function() {
+          alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+        });
+
+      });
+    </script>
+  </head> 
+
+
+  <body> 
+
+    <!-- Start of first page: #one -->
+    <div data-role="page" id="welcome">
+
+      <div data-role="header">
+        <h1>Hi, Justin!</h1>
+      </div><!-- /header -->
+
+      <div id="welcome-content" data-role="content" >        
+        <h2>Upcoming Meals</h2>
+<?php
+// Retrieve meals.
+$querytemplate = 'SELECT * FROM meals ORDER BY date, start_time;';
+$queryreal = sprintf($querytemplate);
+
+$link = mysql_connect('sql.mit.edu', 'dmwkim', '97baystate')
+  or die('Could not connect ' . mysql_error());
+mysql_select_db('dmwkim+mealmates') or die('Could not select database');
+
+$mealresult = mysql_query($queryreal) or die('Could not select meals table');
+
+while($row = mysql_fetch_assoc($mealresult)) {
+?>
+        <div class="day-container">
+          <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
+          <div class="meal-containeri ui-grid-a">
+            <div class="restaurant-button-container ui-block-a">
+              <a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+            </div>
+            <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
+          </div>  
+        </div>
+<?php
+}
+?>
+      </div><!-- /content -->
+      <div data-role="footer" data-position="fixed">
+        <a id="create-button" href="#When" data-role="button">Create a New Meal</a>
+        <h1>MealMates</h1>
+      </div>
+    </div><!-- /page one -->
+
+    <div data-role="page" id="When">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a class="active-top-button" href="When" data-theme="" data-icon="" class="ui-btn-active">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <h1 id="select-time-header">
+          Select a date and time that works for you:
+        </h1>
+        <h2 id="available-header">
+          On which date should the meal take place?
+        </h2>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" />
+          </fieldset>
+        </div>
+        <h2 id="available-header">
+          What time do you want the meal to be?
+        </h2>
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <input id="from-time-input" class="time-number" placeholder="Enter a time..." value=""/>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div data-role="page" id="Where">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#When"  data-theme="" data-icon="">
+              When
+            </a>
+            </li>
+            <li>
+            <a class="active-top-button" href="#Where"  data-theme="" data-icon="" class="ui-btn-active">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who"  data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm"  data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                <input id="textinput11" placeholder="" value="" type="text" />
+              </fieldset>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <a data-role="button" data-transition="fade" href="#page6">
+              Search
+            </a>
+          </div>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div>
+              <b>
+                Places to be added
+              </b>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div>
+              <b>
+                Rank your choices
+              </b>
+            </div>
+          </div>
+          <div class="ui-block-a">
+          </div>
+          <div class="ui-block-b">
+            <div>
+              <b>
+                <div class="numberList">	      
+                  1.
+                </div>
+                <div class="numberList">	      
+                  2.
+                </div>
+                <div class="numberList">	      
+                  3.
+                </div>
+                <div class="numberList">	      
+                  4.
+                </div>
+                <div class="numberList">	      
+                  5.
+                </div>
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="Who" class="drag-page">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#When" data-theme="" data-icon="">
+            When
+          </a>
+          </li>
+          <li>
+          <a href="#Where" data-theme="" data-icon="">
+            Where
+          </a>
+          </li>
+          <li>
+          <a class="active-top-button" href="#Who" data-theme="" data-icon="" class="ui-btn-active">
+            Who
+          </a>
+          </li>
+          <li>
+          <a href="#Confirm" data-theme="" data-icon="">
+            Confirm
+          </a>
+          </li>
+        </ul>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <input id="textinput13" placeholder="" value="" type="text" />
+            </fieldset>
+          </div>
+        </div>
+        <div class="ui-block-b">
+          <a data-role="button" data-transition="fade" href="#page6">
+            Search
+          </a>
+        </div>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <div>
+            <b>
+              To be invited
+            </b>
+          </div>
+        </div>
+        <div class="ui-block-b">
+          <div>
+            <b>
+              Invited
+            </b>
+          </div>
+        </div>
+        <div class="droppable" class="ui-block-a">
+          <table class="pep-draggable">
+            <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> AJ Perez </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Akira monri </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Alex Wang </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Brian Bell </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Chris Haid </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> David Kim </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Feynman Liang </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Jake Varley </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Jimmy Pershken </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Mark Zuckerberg </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+          </table>
+
+          <table class="pep-draggable">
+            <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Ron Rosenberg </td></tr>
+          </table>
+        </div>
+        <div class="droppable" class="ui-block-b" id="right-who">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="Confirm">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#When" data-theme="" data-icon="">
+            When
+          </a>
+          </li>
+          <li>
+          <a href="#Where" data-theme="" data-icon="">
+            Where
+          </a>
+          </li>
+          <li>
+          <a href="#Who" data-theme="" data-icon="">
+            Who
+          </a>
+          </li>
+          <li>
+          <a class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
+            Confirm
+          </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ui-grid-a">
+        <table align="center" width="100%">
+          <tr>
+            <td>
+
+              <div class="ui-block-b">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui-block-b">
+                <h2>
+                  Time:
+                </h2>
+                <div>
+                  <b>
+                    at 5:00 pm on March 3rd
+                  </b>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="ui-block-a">
+                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                  Change
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui-block-b">
+                <h2>
+                  Location:
+                </h2>
+                <div>
+                  <b>
+                    Toscanini's
+                  </b>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="ui-block-a">
+                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                  Change
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui-block-b">
+                <h2>
+                  Invitees:
+                </h2>
+                <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+              </div>
+            </td>
+            <td>
+              <div class="ui-block-a">
+                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                  Change
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="ui-block-b">
+                <h2>
+                  Description:
+                </h2>
+                <div>
+                  <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                      <textarea rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="ui-grid-a">
+        <div class="ui-block-a">
+          <a data-role="button" data-transition="fade" href="#page2">
+            Start Over
+          </a>
+        </div>
+        <div class="ui-block-b">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd">
+            Confirm Meal
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="FamilyDinner">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#welcome" data-theme="" data-icon="">
+            Home
+          </a>
+          </li>
+          <li>
+          <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+            Family Dinner
+          </a>
+          </li>
+        </ul>
+      </div>
+      <h1>
+        Family Dinner
+      </h1>
+      <h2>
+        Time
+      </h2>
+      <div>
+        <b>
+          7:00 p.m. Tomorrow
+          <br />
+        </b>
+      </div>
+      <h2>
+        Location
+      </h2>
+      <div>
+        <b>
+          &nbsp; &nbsp; &nbsp;Oishii
+        </b>
+      </div>
+      <h2>
+        Invitees
+      </h2>
+      <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+    </div>
+  </div>
+  <div data-role="page" id="page9">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#welcome" data-theme="" data-icon="">
+            Home
+          </a>
+          </li>
+          <li>
+          <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+            Family Dinner
+          </a>
+          </li>
+        </ul>
+      </div>
+      <h1 class="title">
+        Family Dinner
+      </h1>
+
+      <table>
+        <tr>
+          <td>
+            <h2 class="content1">
+              Time
+            </h2>
+          </td>
+          <td>
+            <div class="content1">
+              <b>
+                7:00 p.m. Tomorrow
+                <br />
+              </b>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2>
+              Location
+            </h2>
+          </td>
+          <td>
+            <div>
+              <b>
+                &nbsp; &nbsp; &nbsp;Oishii
+              </b>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2>
+              Invitees
+            </h2>
+          </td>
+          <td>
+            <img src="images/david_kim.jpg" alt="image" width="50px" height="50px" />
+          </td>
+        </tr>
+        <tr>
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical">
+              <td>
+                <legend>
+                  <h2>RSVP:</h2>
+                </legend>
+              </td>
+              <td>
+                <input name="radiobuttons1" id="radio1" value="attending" type="radio" />
+                <label for="radio1">
+                  Attending
+                </label>
+                <input name="radiobuttons1" id="radio2" value="maybe" type="radio" />
+                <label for="radio2">
+                  Maybe attending
+                </label>
+                <input name="radiobuttons1" id="radio3" value="not" type="radio" />
+                <label for="radio3">
+                  Can't go
+                </label>
+              </fieldset>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td>
+            <a id="cancel-meal" data-role="button" data-transition="fade" href="#pageend2">
+              Cancel Meal
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>  
+
+</body>
+</html>
