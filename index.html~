@@ -139,7 +139,7 @@
           Select a date and time that works for you:
   	</h1>
   	<h2 id="available-header">
-           &nbsp;  &nbsp;  &nbsp; On which date should the meal take place?
+          On which date should the meal take place?
         </h2>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
@@ -147,7 +147,7 @@
           </fieldset>
         </div>
         <h2 id="available-header">
-            &nbsp;  &nbsp; &nbsp; What time do you want the meal to be?
+          What time do you want the meal to be?
         </h2>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
@@ -400,42 +400,6 @@
             <td>
 
               <div class="ui-block-b">
-                <h1>
-                  Ice Ice Baby
-                </h1>
-                <div>
-                  <b>
-                    Created by You
-                  </b>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
-                  Change
-                </a>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="ui-block-b">
-                <h2>
-                  Description:
-                </h2>
-                <div>
-                  <b>
-                    Ice cream!
-                  </b>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
-                  Change
-                </a>
               </div>
             </td>
           </tr>
@@ -498,7 +462,25 @@
               </div>
             </td>
           </tr>
-        </table>
+          <tr>
+            <td>
+              <div class="ui-block-b">
+                <h2>
+                  Description:
+                </h2>
+                <div>
+                  <div data-role="fieldcontain">
+          		<fieldset data-role="controlgroup">
+				<textarea rows="3" cols="25" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+          		</fieldset>
+        	  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+            </td>
+          </tr>
+	</table>
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
