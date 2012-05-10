@@ -18,33 +18,6 @@
     <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
     <script>
       $(function() {
-        function touchHandler(event)
-        {
-          var touches = event.changedTouches,
-          first = touches[0],
-          type = "";
-
-          switch(event.type)
-          {
-            case "touchstart": type = "mousedown"; break;
-            case "touchmove":  type="mousemove"; break;        
-            case "touchend":   type="mouseup"; break;
-            default: return;
-          }
-
-          // initMouseEvent(type, canBubble, cancelable, view, clickCount,
-          //                screenX, screenY, clientX, clientY, ctrlKey,
-          //                altKey, shiftKey, metaKey, button, relatedTarget);
-
-          var simulatedEvent = document.createEvent("MouseEvent");
-          simulatedEvent.initMouseEvent(type, true, true, window, 1,
-          first.screenX, first.screenY,
-          first.clientX, first.clientY, false,
-          false, false, false, 0, null);
-
-          first.target.dispatchEvent(simulatedEvent);
-          event.preventDefault();
-        }
 
         function init()
         {
@@ -367,7 +340,7 @@
             </b>
     	  </div>
 	</div>
-          <div class="droppable" class="ui-block-a" id="left-who">
+          <div class="droppable" class="ui-block-a">
             <table class="pep-draggable">
               <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> AJ Perez </td></tr>
