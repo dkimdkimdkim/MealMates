@@ -1,0 +1,28 @@
+h2, h3, p {
+  margin: 0;
+}
+
+#create-button {
+  display: block;
+}
+
+.day-container {
+  padding-left: 20px;
+}
+
+.meal-container {
+  padding-left: 10px;
+}
+
+.restaurant-button-container {
+  width: 400px;
+}
+
+.time-window {
+  text-align: right; 
+  margin-top: 1em;
+}
+
+.active-top-button {
+	background:#5393c5;
+}
