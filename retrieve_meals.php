@@ -54,7 +54,7 @@ if(!$maxposts OR $maxposts < 1) {
 }
 
 // Retrieve meals.
-$querytemplate = 'SELECT * FROM meals ORDER BY date DESC, start_time;';
+$querytemplate = 'SELECT * FROM meals ORDER BY date, start_time;';
 $queryreal = sprintf($querytemplate);
 
 $link = mysql_connect('sql.mit.edu', 'dmwkim', '97baystate')

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="style.css" />
-    
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js"></script>
@@ -19,16 +19,46 @@
     <script>
       $(function() {
 
+        /**
+        * Load welcome screen from PHP backend.
+        */
+
+        $.get('retrieve_meals.php', function(data) {
+          console.log(data);
+          $.each(data, function(index, entry) {
+            console.log(entry);
+            var dayContainer = $('<div class="day-container"></div>');
+            dayContainer.append($('<h3>' + entry['date']+ '</h3>'))
+            var mealContainer = $('<div class="meal-container ui-grid-a"></div>');
+            var restaurantButtonContainer = $('<div class="restaurant-button-container ui-block-a"></div>');
+            restaurantButtonContainer.append($('<a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true">' + entry['restaurant'] + '</a>'));
+            mealContainer.append(restaurantButtonContainer);
+            dayContainer.append(mealContainer);
+            $('#welcome-content').append(dayContainer);
+          });
+        });
+        /*
+        <div class="day-container">
+          <h3>Wednesday, May 16</h3>
+          <div class="meal-container ui-grid-a">
+            <div class="restaurant-button-container ui-block-a">
+              <a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true">Cafeteria</a>
+            </div>
+            <span class="time-window ui-block-b">at <strong>7:00pm</strong></span>
+          </div>  
+        </div>
+        */
+
         function init()
         {
           //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
           //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
           //$('.drag-page').addEventListener("touchmove", touchHandler, true);
-	  //$('.drag-page').addEventListener("touchend", touchHandler, true);
+          //$('.drag-page').addEventListener("touchend", touchHandler, true);
           //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
         }
-	init();
-	$(".pep-draggable").pep();
+        init();
+        $(".pep-draggable").pep();
         init();
         $(".draggable").draggable({
           revert: true,
@@ -90,8 +120,9 @@
         <h1>Hi, Justin!</h1>
       </div><!-- /header -->
 
-      <div data-role="content" >  
+      <div id="welcome-content" data-role="content" >        
         <h2>Upcoming Meals</h2>
+        <!--
         <div class="day-container">
           <h3>Wednesday, May 16</h3>
           <div class="meal-containeri ui-grid-a">
@@ -101,6 +132,7 @@
             <span class="time-window ui-block-b">at <strong>7:00pm</strong></span>
           </div>  
         </div>
+        -->
       </div><!-- /content -->
 
       <div data-role="footer" data-position="fixed">
@@ -137,8 +169,8 @@
         </div>
         <h1 id="select-time-header">
           Select a date and time that works for you:
-  	</h1>
-  	<h2 id="available-header">
+        </h1>
+        <h2 id="available-header">
           On which date should the meal take place?
         </h2>
         <div data-role="fieldcontain">
@@ -293,73 +325,73 @@
             <b>
               Invited
             </b>
-    	  </div>
-	</div>
-          <div class="droppable" class="ui-block-a">
-            <table class="pep-draggable">
-              <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> AJ Perez </td></tr>
-            </table>
+          </div>
+        </div>
+        <div class="droppable" class="ui-block-a">
+          <table class="pep-draggable">
+            <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> AJ Perez </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Akira monri </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Akira monri </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Alex Wang </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Alex Wang </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Aviv Cukierman </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Brian Bell </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Brian Bell </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Chris Haid </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Chris Haid </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> David Kim </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> David Kim </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Feynman Liang </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Feynman Liang </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Jake Varley </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Jake Varley </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Jimmy Pershken </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Jimmy Pershken </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Mark Zuckerberg </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Mark Zuckerberg </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Mercedes Oliva </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+          </table>
 
-            <table class="pep-draggable">
-              <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Ron Rosenberg </td></tr>
-            </table>
+          <table class="pep-draggable">
+            <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
+            <tr><td class="draggableText"> Ron Rosenberg </td></tr>
+          </table>
         </div>
         <div class="droppable" class="ui-block-b" id="right-who">
         </div>
@@ -470,17 +502,17 @@
                 </h2>
                 <div>
                   <div data-role="fieldcontain">
-          		<fieldset data-role="controlgroup">
-				<textarea rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
-          		</fieldset>
-        	  </div>
+                    <fieldset data-role="controlgroup">
+                      <textarea rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                    </fieldset>
+                  </div>
                 </div>
               </div>
             </td>
             <td>
             </td>
           </tr>
-	</table>
+        </table>
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
@@ -497,7 +529,7 @@
     </div>
   </div>
 
-<div data-role="page" id="FamilyDinner">
+  <div data-role="page" id="FamilyDinner">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
         <ul>
@@ -623,14 +655,14 @@
               </fieldset>
             </td>
           </div>
-  	</tr>
-	<tr>
-		<td>
-			<a id="cancel-meal" data-role="button" data-transition="fade" href="#pageend2">
-             			Cancel Meal
-            		</a>
-		</td>
-	</tr>
+        </tr>
+        <tr>
+          <td>
+            <a id="cancel-meal" data-role="button" data-transition="fade" href="#pageend2">
+              Cancel Meal
+            </a>
+          </td>
+        </tr>
       </table>
     </div>
   </div>  
