@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
     <script>
       $(function() {
 
@@ -42,13 +43,14 @@
 
         function init()
         {
-          document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
-          document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
+          //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
+          //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
           //$('.drag-page').addEventListener("touchmove", touchHandler, true);
-          //$('.drag-page').addEventListener("touchend", touchHandler, true);
+	  //$('.drag-page').addEventListener("touchend", touchHandler, true);
           //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
         }
-        init();
+	init();
+	$(".pep-draggable").pep();
         $(".draggable").draggable({
           revert: true,
           zIndex: 10,
@@ -355,6 +357,287 @@
       </div>
       </div>
     </div>
+
+<div data-role="page" id="Who" class="drag-page">
+      <div data-role="content">
+        <div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#When" data-theme="" data-icon="">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="" class="ui-btn-active">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                <input id="textinput13" placeholder="" value="" type="text" />
+              </fieldset>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <a data-role="button" data-transition="fade" href="#page6">
+              Search
+            </a>
+          </div>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <div>
+              <b>
+                To be invited
+              </b>
+            </div>
+          </div>
+          <div class="ui-block-b">
+            <div>
+              <b>
+                Invited
+              </b>
+            </div>
+          </div>
+          <div class="droppable" class="ui-block-a" id="left-who">
+            <table class="pep-draggable">
+              <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> AJ Perez </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Akira monri </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Alex Wang </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Brian Bell </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Chris Haid </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> David Kim </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Feynman Liang </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jake Varley </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jimmy Pershken </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mark Zuckerberg </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+            </table>
+
+            <table class="pep-draggable">
+              <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Ron Rosenberg </td></tr>
+            </table>
+
+          </div>
+          <div class="droppable" class="ui-block-b" id="right-who">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div data-role="page" id="Confirm">
+      <div data-role="content">
+		<div data-role="navbar" data-iconpos="top">
+          <ul>
+            <li>
+            <a href="#When" data-theme="" data-icon="">
+              When
+            </a>
+            </li>
+            <li>
+            <a href="#Where" data-theme="" data-icon="" class="ui-btn-active">
+              Where
+            </a>
+            </li>
+            <li>
+            <a href="#Who" data-theme="" data-icon="">
+              Who
+            </a>
+            </li>
+            <li>
+            <a href="#Confirm" data-theme="" data-icon="">
+              Confirm
+            </a>
+            </li>
+          </ul>
+        </div>
+        <h1>
+        </h1>
+
+        <div class="ui-grid-a">
+          <table align="center" width="100%">
+            <tr>
+              <td>
+
+                <div class="ui-block-b">
+                  <h1>
+                    Ice Ice Baby
+                  </h1>
+                  <div>
+                    <b>
+                      Created by You
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Description:
+                  </h2>
+                  <div>
+                    <b>
+                      Ice cream!
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Time:
+                  </h2>
+                  <div>
+                    <b>
+                      at 5:00 pm on March 3rd
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Location:
+                  </h2>
+                  <div>
+                    <b>
+                      Toscanini's
+                    </b>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="ui-block-b">
+                  <h2>
+                    Invitees:
+                  </h2>
+                  <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+                </div>
+              </td>
+              <td>
+                <div class="ui-block-a">
+                  <a id="change" data-role="button" data-transition="fade" href="#page7">
+                    Change
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+            <a data-role="button" data-transition="fade" href="#page2">
+              Start Over
+            </a>
+          </div>
+          <div class="ui-block-b">
+            <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd">
+              Confirm Meal
+            </a>
+            <!--
+            <input id="confirm-meal-button" type="submit" value="Confirm Meal" />
+            -->
+          </div>
+        </div>
+      </div>
+    </div>    
 
   </body>
 </html>
