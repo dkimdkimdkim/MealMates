@@ -17,3 +17,8 @@ h2, h3, p {
 .restaurant-button-container {
   width: 400px;
 }
+
+.time-window {
+  text-align: right; 
+  margin-top: 1em;
+}
