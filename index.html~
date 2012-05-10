@@ -104,7 +104,7 @@
       </div><!-- /content -->
 
       <div data-role="footer" data-position="fixed">
-        <a id="create-button" href="#when" data-role="button">Create a New Meal</a>
+        <a id="create-button" href="#When" data-role="button">Create a New Meal</a>
         <h1>MealMates</h1>
       </div>
     </div><!-- /page one -->
@@ -180,7 +180,7 @@
         </h1>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" type="text" />
+            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" />
           </fieldset>
         </div>
         <h2 id="available-header">
@@ -188,9 +188,9 @@
         </h2>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="from-time-input" class="time-number" placeholder="Beginning" value="" type="text" />
+            <input id="from-time-input" class="time-number" placeholder="Beginning" value=""/>
             to:
-            <input id="to-time-input" class="time-number" placeholder="Ending" value="" type="text" />
+            <input id="to-time-input" class="time-number" placeholder="Ending" value=""/>
           </fieldset>
         </div>
         <a data-role="button" data-transition="fade" href="#page10">
@@ -558,7 +558,145 @@
         </div>
       </div>
     </div>
-  </div>    
+  </div>
+
+<div data-role="page" id="FamilyDinner">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#welcome" data-theme="" data-icon="">
+            Home
+          </a>
+          </li>
+          <li>
+          <a href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+            Family Dinner
+          </a>
+          </li>
+        </ul>
+      </div>
+      <h1>
+        Family Dinner
+      </h1>
+      <h2>
+        Time
+      </h2>
+      <div>
+        <b>
+          7:00 p.m. Tomorrow
+          <br />
+        </b>
+      </div>
+      <h2>
+        Location
+      </h2>
+      <div>
+        <b>
+          &nbsp; &nbsp; &nbsp;Oishii
+        </b>
+      </div>
+      <h2>
+        Invitees
+      </h2>
+      <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+    </div>
+  </div>
+  <div data-role="page" id="page9">
+    <div data-role="content">
+      <div data-role="navbar" data-iconpos="top">
+        <ul>
+          <li>
+          <a href="#welcome" data-theme="" data-icon="">
+            Home
+          </a>
+          </li>
+          <li>
+          <a href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+            Family Dinner
+          </a>
+          </li>
+        </ul>
+      </div>
+      <h1 class="title">
+        Family Dinner
+      </h1>
+
+      <table>
+        <tr>
+          <td>
+            <h2 class="content1">
+              Time
+            </h2>
+          </td>
+          <td>
+            <div class="content1">
+              <b>
+                7:00 p.m. Tomorrow
+                <br />
+              </b>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2>
+              Location
+            </h2>
+          </td>
+          <td>
+            <div>
+              <b>
+                &nbsp; &nbsp; &nbsp;Oishii
+              </b>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2>
+              Invitees
+            </h2>
+          </td>
+          <td>
+            <img src="images/david_kim.jpg" alt="image" width="50px" height="50px" />
+          </td>
+        </tr>
+        <tr>
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical">
+              <td>
+                <legend>
+                  <h2>RSVP:</h2>
+                </legend>
+              </td>
+              <td>
+                <input name="radiobuttons1" id="radio1" value="attending" type="radio" />
+                <label for="radio1">
+                  Attending
+                </label>
+                <input name="radiobuttons1" id="radio2" value="maybe" type="radio" />
+                <label for="radio2">
+                  Maybe attending
+                </label>
+                <input name="radiobuttons1" id="radio3" value="not" type="radio" />
+                <label for="radio3">
+                  Can't go
+                </label>
+              </fieldset>
+            </td>
+          </div>
+  	</tr>
+	<tr>
+		<td>
+			<a id="cancel-meal" data-role="button" data-transition="fade" href="#pageend2">
+             			Cancel Meal
+            		</a>
+		</td>
+	</tr>
+      </table>
+    </div>
+  </div>  
 
 </body>
 </html>
