@@ -17,7 +17,29 @@
     <script src="jquery-ui-timepicker-addon.js"></script>
     <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
     <script>
+        var mealDate;
+        var mealTime;
+        var mealPlace;
+        var mealInvitees;
+        var mealDescription;
+        function setDate() {
+          mealDate = $('#calendar-input').val();
+          console.log(mealDate);
+        }
+        function setTime() {
+          mealTime = $('#from-time-input').val();
+        }
+        function setPlace() {
+          //mealPlace = ;
+        }
+        function setInvitees() {
+          //mealInvitees = inviteeArray;
+        }
+        function setDescription() {
+          mealDescription = $('#description-textarea').val();;
+        }
       $(function() {
+
 
         /**
         * Load welcome screen from PHP backend.
@@ -106,7 +128,6 @@
         $('#cancel-meal').click(function() {
           alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
         });
-
       });
     </script>
   </head> 
@@ -140,7 +161,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+              <a class="restaurant-button" href="#FamilyDinner" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -150,7 +171,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 ?>
       </div><!-- /content -->
       <div data-role="footer" data-position="fixed">
-        <a id="create-button" href="#When" data-role="button">Create a New Meal</a>
+        <a id="create-button" href="#When" data-theme="e" data-role="button">Create a New Meal</a>
         <h1>MealMates</h1>
       </div>
     </div><!-- /page one -->
@@ -201,6 +222,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </fieldset>
         </div>
       </div>
+	<div>
+	    <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
+              Save and Continue
+	    </a>
+	</div>
     </div>
 
     <div data-role="page" id="Where">
@@ -283,6 +309,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
       </div>
+	<div>
+	    <a data-role="button" data-transition="fade" href="#Who">
+              Save and Continue
+	    </a>
+	</div>
     </div>
   </div>
 
@@ -411,6 +442,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
       </div>
     </div>
+	<div>
+	    <a data-role="button" data-transition="fade" href="#Confirm">
+              Save and Continue
+	    </a>
+	</div>
   </div>
 
   <div data-role="page" id="Confirm">
@@ -517,7 +553,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
                     </fieldset>
                   </div>
                 </div>
@@ -535,7 +571,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onclick="setDescription();">
             Confirm Meal
           </a>
         </div>
