@@ -1,4 +1,8 @@
 <!DOCTYPE html> 
+<?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
+?>
 <html>
 
   <head>
@@ -10,42 +14,43 @@
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="style.css" />
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js"></script>
-    <script src="jquery.ui.touch-punch.min.js"></script>
-    <script src="jquery-ui-timepicker-addon.js"></script>
-    <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
-    <script>
-        var mealDate;
-        var mealTime;
-        var mealPlace;
-        var mealInvitees;
-        var mealDescription;
-        function setDate() {
-          mealDate = $('#calendar-input').val();
-          console.log(mealDate);
-        }
-        function setTime() {
-          mealTime = $('#from-time-input').val();
-        }
-        function setPlace() {
-          //mealPlace = ;
-        }
-        function setInvitees() {
-          //mealInvitees = inviteeArray;
-        }
-        function setDescription() {
-          mealDescription = $('#description-textarea').val();;
-        }
-      $(function() {
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+<script src="jquery-ui-timepicker-addon.js"></script>
+<script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
+<script>
+var mealDate;
+var mealTime;
+var mealPlace;
+var mealInvitees = [];
+var mealDescription;
+function setDate() {
+  mealDate = $('#calendar-input').val();
+}
+function setTime() {
+  mealTime = $('#from-time-input').val();
+}
+function setPlace() {
+  //mealPlace = ;
+}
+function addInvitee(invitee) {
+  //mealInvitees = inviteeArray;
+}
+function removeInvitee(invitee) {
+}
+function setDescription() {
+  mealDescription = $('#description-textarea').val();;
+}
+$(function() {
 
 
-        /**
-        * Load welcome screen from PHP backend.
-        */
+  /**
+   * Load welcome screen from PHP backend.
+   */
         /*
-        $.get('retrieve_meals.php', function(data) {
+          $.get('retrieve_meals.php', function(data) {
           console.log(data);
           $.each(data, function(index, entry) {
             console.log(entry);
@@ -70,65 +75,65 @@
             <span class="time-window ui-block-b">at <strong>7:00pm</strong></span>
           </div>  
         </div>
-        */
+         */
 
-        function init()
-        {
-          //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
-          //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
-          //$('.drag-page').addEventListener("touchmove", touchHandler, true);
-          //$('.drag-page').addEventListener("touchend", touchHandler, true);
-          //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
-        }
-        init();
-        $(".pep-draggable").pep();
-        init();
-        $(".draggable").draggable({
-          revert: true,
-          zIndex: 10,
-        });
-        $(".droppable").droppable({
-          activeClass: "draggable",
-          drop: handleDroppable,
-        });
-        $(".rankDrop").droppable({
-          activeClass: "draggable",
-          drop: handleRankDrop,
-        });
+  function init()
+  {
+    //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
+    //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
+    //$('.drag-page').addEventListener("touchmove", touchHandler, true);
+    //$('.drag-page').addEventListener("touchend", touchHandler, true);
+    //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
+  }
+  init();
+  $(".pep-draggable").pep();
+  init();
+  $(".draggable").draggable({
+    revert: true,
+      zIndex: 10,
+  });
+  $(".droppable").droppable({
+    activeClass: "draggable",
+      drop: handleDroppable,
+  });
+  $(".rankDrop").droppable({
+    activeClass: "draggable",
+      drop: handleRankDrop,
+  });
 
-        function handleDroppable(event, ui) {
-          console.log(this);
-          $(this).append(ui.draggable);
-          ui.draggable.draggable( 'option', 'revert', false );
-          ui.draggable.css({'position':'static'});
-        }
+  function handleDroppable(event, ui) {
+    console.log(this);
+    $(this).append(ui.draggable);
+    ui.draggable.draggable( 'option', 'revert', false );
+    ui.draggable.css({'position':'static'});
+  }
 
-        function handleRankDrop(event, ui) {
-          console.log(this);
-          $(this).droppable( 'disable' );
-          $(this).append(ui.draggable);
-          ui.draggable.draggable( 'option', 'revert', false );
-          ui.draggable.css({position:'static'});
-        }
-        //$('#calendar-input').datepicker('option', 'showAnim', 'slide');
-        $('#calendar-input').datepicker();
-        $('#from-time-input').timepicker({});
-        $('#to-time-input').timepicker({});
-        $('.am-pm-toggle').click(function() {
-          if($(this).text() == 'AM') {
-            $(this).html('PM');
-          }
-          else {
-            $(this).html('AM');
-          }
-        });
-        $('#confirm-meal-button').click(function() {
-          alert('Success! Your invitations have been sent.');
-        });
-        $('#cancel-meal').click(function() {
-          alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
-        });
-      });
+  function handleRankDrop(event, ui) {
+    console.log(this);
+    $(this).droppable( 'disable' );
+    $(this).append(ui.draggable);
+    ui.draggable.draggable( 'option', 'revert', false );
+    ui.draggable.css({position:'static'});
+  }
+  //$('#calendar-input').datepicker('option', 'showAnim', 'slide');
+  $('#calendar-input').datepicker();
+  $('#from-time-input').timepicker({});
+  $('#to-time-input').timepicker({});
+  $('.am-pm-toggle').click(function() {
+    if($(this).text() == 'AM') {
+      $(this).html('PM');
+    }
+    else {
+      $(this).html('AM');
+    }
+  });
+  $('#confirm-meal-button').click(function() {
+    alert('Success! Your invitations have been sent.');
+  });
+  $('#cancel-meal').click(function() {
+    alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+  });
+});
     </script>
   </head> 
 
@@ -161,7 +166,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#FamilyDinner" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+              <a class="restaurant-button" href="#<?php echo $row['restaurant']; ?>" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -222,11 +227,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </fieldset>
         </div>
       </div>
-	<div>
-	    <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
+  <div>
+      <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
               Save and Continue
-	    </a>
-	</div>
+      </a>
+  </div>
     </div>
 
     <div data-role="page" id="Where">
@@ -282,11 +287,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
       </div>
-	<div>
-	    <a data-role="button" data-transition="fade" href="#Who">
+  <div>
+      <a data-role="button" data-transition="fade" href="#Who">
               Save and Continue
-	    </a>
-	</div>
+      </a>
+  </div>
     </div>
   </div>
 
@@ -430,11 +435,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
       </div>
     </div>
-	<div>
-	    <a data-role="button" data-transition="fade" href="#Confirm">
+  <div>
+      <a data-role="button" data-transition="fade" href="#Confirm">
               Save and Continue
-	    </a>
-	</div>
+      </a>
+  </div>
   </div>
 
   <div data-role="page" id="Confirm">
@@ -567,31 +572,49 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </div>
   </div>
 
-  <div data-role="page" id="FamilyDinner">
-    <div data-role="content">
-      <div data-role="navbar" data-iconpos="top">
-        <ul>
-          <li>
-          <a href="#welcome" data-theme="" data-icon="">
-            Home
-          </a>
-          </li>
-          <li>
-          <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
-            Family Dinner
-          </a>
-          </li>
-        </ul>
-      </div>
-      <h1>
-        Family Dinner
-      </h1>
-      <h2>
-        Time
-      </h2>
-      <div>
-        <b>
-          7:00 p.m. Tomorrow
+<?php
+// dynamically generate pages for each meal
+$querytemplate = 'SELECT * FROM meals ORDER BY date, start_time;';
+$queryreal = sprintf($querytemplate);
+
+$link = mysql_connect('sql.mit.edu', 'dmwkim', '97baystate')
+  or die('Could not connect ' . mysql_error());
+mysql_select_db('dmwkim+mealmates') or die('Could not select database');
+
+$mealresult = mysql_query($queryreal) or die('Could not select meals table');
+
+while($row = mysql_fetch_assoc($mealresult)) {
+?>
+  <div data-role="page" id="<?php echo $row['restaurant']; ?>">
+  <div data-role="content">
+  <div data-role="navbar" data-iconpos="top">
+  <ul>
+  <li>
+  <a href="#welcome" data-theme="" data-icon="">
+  Home
+  </a>
+  </li>
+  <li>
+  <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+  <?php echo $row['restaurant']; ?>
+  </a>
+    </li>
+    </ul>
+    </div>
+    <h1>
+    <?php echo $row['restaurant']; ?>
+  </h1>
+    <h2>
+    Time
+    </h2>
+    <div>
+    <b>
+<?php
+  echo date("g:i a", strtotime($row['start_time']));
+  echo ' on ';
+  echo date("m/d/Y", strtotime($row['date']));
+?>
+
           <br />
         </b>
       </div>
@@ -600,7 +623,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </h2>
       <div>
         <b>
-          &nbsp; &nbsp; &nbsp;Oishii
+          <?php echo $row['restaurant']; ?>
         </b>
       </div>
       <h2>
@@ -609,6 +632,10 @@ while($row = mysql_fetch_assoc($mealresult)) {
       <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
     </div>
   </div>
+<?php
+}
+?>
+<!--
   <div data-role="page" id="page9">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
@@ -704,6 +731,6 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </table>
     </div>
   </div>  
-
+-->
 </body>
 </html>
