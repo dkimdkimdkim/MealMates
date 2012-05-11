@@ -140,7 +140,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#FamilyDinner" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+              <a class="restaurant-button" href="#FamilyDinner" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -150,7 +150,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 ?>
       </div><!-- /content -->
       <div data-role="footer" data-position="fixed">
-        <a id="create-button" href="#When" data-role="button">Create a New Meal</a>
+        <a id="create-button" href="#When" data-theme="e" data-role="button">Create a New Meal</a>
         <h1>MealMates</h1>
       </div>
     </div><!-- /page one -->
