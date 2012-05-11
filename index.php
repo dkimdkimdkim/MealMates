@@ -24,11 +24,10 @@ error_reporting(E_ALL);
 var mealDate;
 var mealTime;
 var mealPlace;
-var mealInvitees;
+var mealInvitees = [];
 var mealDescription;
 function setDate() {
   mealDate = $('#calendar-input').val();
-  console.log(mealDate);
 }
 function setTime() {
   mealTime = $('#from-time-input').val();
@@ -36,8 +35,10 @@ function setTime() {
 function setPlace() {
   //mealPlace = ;
 }
-function setInvitees() {
+function addInvitee(invitee) {
   //mealInvitees = inviteeArray;
+}
+function removeInvitee(invitee) {
 }
 function setDescription() {
   mealDescription = $('#description-textarea').val();;
