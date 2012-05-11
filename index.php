@@ -17,7 +17,29 @@
     <script src="jquery-ui-timepicker-addon.js"></script>
     <script src="https://raw.github.com/briangonzalez/pep.jquery.js/master/js/libs/jquery.pep.js"></script>
     <script>
+        var mealDate;
+        var mealTime;
+        var mealPlace;
+        var mealInvitees;
+        var mealDescription;
+        function setDate() {
+          mealDate = $('#calendar-input').val();
+          console.log(mealDate);
+        }
+        function setTime() {
+          mealTime = $('#from-time-input').val();
+        }
+        function setPlace() {
+          //mealPlace = ;
+        }
+        function setInvitees() {
+          //mealInvitees = inviteeArray;
+        }
+        function setDescription() {
+          mealDescription = $('#description-textarea').val();;
+        }
       $(function() {
+
 
         /**
         * Load welcome screen from PHP backend.
@@ -106,7 +128,6 @@
         $('#cancel-meal').click(function() {
           alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
         });
-
       });
     </script>
   </head> 
@@ -202,7 +223,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
       </div>
 	<div>
-	    <a data-role="button" data-transition="fade" href="#Where">
+	    <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
               Save and Continue
 	    </a>
 	</div>
@@ -532,7 +553,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
                     </fieldset>
                   </div>
                 </div>
@@ -550,7 +571,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onclick="setDescription();">
             Confirm Meal
           </a>
         </div>
