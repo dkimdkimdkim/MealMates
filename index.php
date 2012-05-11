@@ -45,6 +45,12 @@ function setDescription() {
 }
 $(function() {
 
+  /**
+    * Listener for invitee buttons.
+    */
+  $('.invitee-button').click(function() {
+    console.log($(this));
+  });
 
   /**
    * Load welcome screen from PHP backend.
