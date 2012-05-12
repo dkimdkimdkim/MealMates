@@ -46,10 +46,19 @@ function setDescription() {
 $(function() {
 
   /**
-    * Listener for invitee buttons.
-    */
+   * Listener for invitee buttons.
+   */
   $('.invitee-button').click(function() {
-    console.log($(this));
+    $(this).toggleClass('selected');
+  });
+
+  $('.invitee-button').click(function() {
+    if(!$(this).hasClass('selected')) {
+      console.log('on');
+    }
+    else {
+      console.log('off');
+    }
   });
 
   /**
@@ -288,8 +297,8 @@ while($row = mysql_fetch_assoc($mealresult)) {
               </b>
             </div>
           </div>
-	  <div class = scrollgrid>
-	  </div>
+    <div class = scrollgrid>
+    </div>
           </div>
         </div>
       </div>
@@ -350,119 +359,119 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         </div>
-	<table class="scrollgrid">
-	  <tr>
-	     <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> AJ Perez </td></tr>
-		</table>
-		</button>
-	     </td>
-	     <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Akira monri </td></tr>
-		</table>
-		</button>
-	     </td>
-	     <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Alex Wang </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Aviv Cukierman </td></tr>
-		</table>
-		</button>
-	    </td>
-	</tr>
-	<tr>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Brian Bell </td></tr>
-		</table>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Chris Haid </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-		<table>
-            	<tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> David Kim </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Feynman Liang </td></tr>
-		</table>
-		</button>
-	    </td>
-	</tr>
-	<tr>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Jake Varley </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Jimmy Pershken </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Mark Zuckerberg </td></tr>
-		</table>
-		</button>
-	    </td>
-	    <td>
-		<button class="invitee-button">
-          	<table>
-            	<tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Mercedes Oliva </td></tr>
-		</table>
-		</button>
-	    </td>
-	</tr>
-	<tr>
-	    <td>
-		<button class="invitee-button">
-          	<table class="pep-draggable">
-            	<tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
-            	<tr><td class="draggableText"> Ron Rosenberg </td></tr>
-		</table>
-		</button>
-	    </td>
-	</tr>
-	</table>
+  <table class="scrollgrid">
+    <tr>
+       <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> AJ Perez </td></tr>
+    </table>
+    </a>
+       </td>
+       <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Akira Monri </td></tr>
+    </table>
+    </a>
+       </td>
+       <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Alex Wang </td></tr>
+    </table>
+    </a>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+    </table>
+    </a>
+      </td>
+  </tr>
+  <tr>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Brian Bell </td></tr>
+    </table>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Chris Haid </td></tr>
+    </table>
+    </a>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+    <table>
+              <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> David Kim </td></tr>
+    </table>
+    </a>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Feynman Liang </td></tr>
+    </table>
+    </a>
+      </td>
+  </tr>
+  <tr>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jake Varley </td></tr>
+    </table>
+    </button>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Jimmy P. </td></tr>
+    </table>
+    </a>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mark Z. </td></tr>
+    </table>
+    </a>
+      </td>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table>
+              <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+    </table>
+    </a>
+      </td>
+  </tr>
+  <tr>
+      <td>
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
+            <table class="pep-draggable">
+              <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
+              <tr><td class="draggableText"> Ron R. </td></tr>
+    </table>
+    </a>
+      </td>
+  </tr>
+  </table>
         </div>
       </div>
     </div>
