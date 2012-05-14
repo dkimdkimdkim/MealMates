@@ -2,6 +2,16 @@ h2, h3, p {
   margin: 0;
 }
 
+td {float:left;
+}
+
+.scrollgrid{
+width:45%;
+height: 500px;
+overflow:auto;
+background-color:#EEE
+}
+
 #create-button {
   display: block;
 }
@@ -24,5 +34,44 @@ h2, h3, p {
 }
 
 .active-top-button {
-	background:#5393c5;
+	border:1px solid #2373a5;background:#5393c5;font-weight:bold;color:#fff;cursor:pointer;text-shadow:0 1px 1px #3373a5;text-decoration:none;background-image:-webkit-gradient(linear,left top,left bottom,from(#5393c5),to(#6facd5));background-image:-webkit-linear-gradient(#5393c5,#6facd5);background-image:-moz-linear-gradient(#5393c5,#6facd5);background-image:-ms-linear-gradient(#5393c5,#6facd5);background-image:-o-linear-gradient(#5393c5,#6facd5);background-image:linear-gradient(#5393c5,#6facd5);font-family:Helvetica,Arial,sans-serif
+}
+
+.invitee-button.selected {
+  /*
+  border-color: #FF0;
+  border-width: 5px;
+  */
+  background-color: #000;
+}
+
+.ui-icon-invitee-button {
+  background-color: #FF0;
+}
+
+.search{
+	/* width: 50%; */
+	float: right;
+}
+
+.upbutton{
+	background-color: #82a8d2;
+	}
+
+div.scroll {
+float:left;
+height: 800px;
+width: 200px;
+overflow: auto;
+}
+
+.ui-body-c, .ui-overlay-c {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#11446B),to(#60D784));
+background-image: -webkit-linear-gradient(#11446B,#60D784);
+background-image: -moz-linear-gradient(#11446B,#60D784);
+background-image: -ms-linear-gradient(#11446B,#60D784);
+background-image: -o-linear-gradient(#11446B,#60D784);
+background-image: linear-gradient(#11446B,#60D784);
+	color:white;
+	text-shadow: 0 0px 0 black;
 }
