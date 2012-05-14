@@ -24,7 +24,7 @@ error_reporting(E_ALL);
 var mealDate;
 var mealTime;
 var mealPlace;
-var mealInvitees = [];
+var mealInvitees = {};
 var mealDescription;
 function setDate() {
   mealDate = $('#calendar-input').val();
@@ -45,6 +45,16 @@ function removeInvitee(invitee) {
 }
 function setDescription() {
   mealDescription = $('#description-textarea').val();
+}
+
+function postData() {
+  $.post('post_meal.php', {
+      date: mealDate,
+      time: mealTime,
+      place: mealPlace,
+      invitees: JSON.stringify(mealInvitees),
+      description: mealDescription
+  });
 }
 
 $(function() {
@@ -168,18 +178,20 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#
+              <a class="restaurant-button" href=
 
-<?php
+"#<?php
+  
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
   //echo $restaurantrow['restaurant_name'];
-  //echo $row['restaurant'];
-  echo 'Confirm';
-?>
+  echo $row['restaurant'];
+  //echo 'Confirm';
+   
+?>"
 
-" data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
+ data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
