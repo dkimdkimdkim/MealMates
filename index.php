@@ -206,7 +206,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
-  echo $restaurantrow['restaurant_name'];
+  //echo $restaurantrow['restaurant_name'];
+  //echo $row['restaurant'];
+  echo 'Confirm';
 ?>
 
 " data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
@@ -771,7 +773,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </a>
   </li>
   <li>
-  <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+  <a class="active-top-button" href="<?php echo $row['restaurant']; ?>" data-theme="" data-icon="" class="ui-btn-active">
 <?php
   //echo $row['restaurant'];
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
