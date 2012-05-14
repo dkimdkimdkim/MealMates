@@ -92,8 +92,8 @@ function displayInvitees() {
   else{
     inviteeString = "";
     for(invitee in mealInvitees){
-      if(mealInvitees[invitee] == true){
-        inviteeString.concat("<img src='images/" + invitee + ".jpg' alt='" + invitee + "' width='50px' height='50px'/>");
+      if(mealInvitees[invitee] != null){
+        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
       }	
     }
   }
