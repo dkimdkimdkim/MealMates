@@ -146,11 +146,12 @@ $(function() {
     }
   });
 
-  $('.button-confirm').click(function() {
+  /*$('.button-confirm').click(function() {
+	console.log("Confirm button clicked");
 	displayTime();
 	displayLocation();
 	displayInvitees();
-  });
+});*/
 
 
 
@@ -285,7 +286,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
               Confirm
             </a>
             </li>
@@ -338,7 +339,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
               Confirm
             </a>
             </li>
@@ -361,9 +362,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
-              <b>
+              <h2>
                 Places to be added
-              </b>
+              </h2>
             </div>
           </div>
     <div class="scrollgrid ui-btn-corner-all">
@@ -479,7 +480,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+          <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
             Confirm
           </a>
           </li>
@@ -502,9 +503,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <div>
-            <b>
+            <h2>
               Invite people!
-            </b>
+            </h2>
           </div>
         </div>
         </div>
@@ -622,7 +623,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm">
+      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm"  onClick="displayTime(); displayLocation(); displayInvitees();">
               Save and Continue
       </a>
   </div>
@@ -651,7 +652,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
+          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active" onClick="displayTime(); displayLocation(); displayInvitees();">
             Confirm
           </a>
           </li>
