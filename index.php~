@@ -65,6 +65,7 @@ function displayTime() {
     $('#display-time').html("Go to the When page to set a Time for the Meal!");
   }
   else{
+    console.log("Meal time: " + mealTime + " Meal date: " + mealDate);
     $('#display-time').html("at " + mealTime + "on " + mealDate);
   }
 }
@@ -74,21 +75,23 @@ function displayLocation() {
     $('#display-location').html("Go to the Where page to set a Location for the Meal!");
   }
   else{
+    console.log("Meal Place: " + mealPlace);
     $('#display-location').html(mealPlace);
   }
 }
 
 function displayInvitees() {
-  if(mealInvitees == null){
+  if(mealInvitees.length == 0){
     $('#display-invitees').html("Go to the Who page to invite people to the Meal!");
   }
   else{
     inviteeString = "";
     for(invitee in mealInvitees){
       if(mealInvitees[invitee] != null){
-        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
+        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' width='50px' height='50px'/>");
       }	
     }
+    console.log("Invitee String: " + inviteeString);
     $('#display-invitees').html(inviteeString);
   }
 }

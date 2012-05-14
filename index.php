@@ -81,14 +81,14 @@ function displayLocation() {
 }
 
 function displayInvitees() {
-  if(mealInvitees == null){
+  if(mealInvitees.length == 0){
     $('#display-invitees').html("Go to the Who page to invite people to the Meal!");
   }
   else{
     inviteeString = "";
     for(invitee in mealInvitees){
       if(mealInvitees[invitee] != null){
-        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
+        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' width='50px' height='50px'/>");
       }	
     }
     console.log("Invitee String: " + inviteeString);
@@ -274,22 +274,22 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div data-role="navbar" data-iconpos="top">
           <ul>
             <li>
-            <a class="active-top-button" href="When" data-theme="" data-icon="" class="ui-btn-active">
+            <a class="active-top-button" href="When" data-theme="" data-icon="" class="ui-btn-active" onClick="setDate(); setTime();">
               When
             </a>
             </li>
             <li>
-            <a href="#Where" data-theme="" data-icon="">
+            <a href="#Where" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Where
             </a>
             </li>
             <li>
-            <a href="#Who" data-theme="" data-icon="">
+            <a href="#Who" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Who
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Confirm
             </a>
             </li>
