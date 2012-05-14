@@ -49,24 +49,24 @@ function addInvitee(invitee) {
   console.log(invitee);
 }
 function removeInvitee(invitee) {
-	mealInvitees = jQuery.grep(mealInvitees, function(value) {
+  mealInvitees = jQuery.grep(mealInvitees, function(value) {
     return value != invitee;
-});
+  });
 }
 function setDescription() {
   mealDescription = $('#description-textarea').val();
 }
 
 function displayTime() {
-	if(mealDate == null){
-		return "Go to the When page to set a Date for the Meal!";
-	}
-	else if(mealTime == null){
-		return "Go to the When page to set a Time for the Meal!";
-	}
-	else{
-		return "at " + mealTime + "on " + mealDate;
-	}
+  if(mealDate == null){
+    return "Go to the When page to set a Date for the Meal!";
+  }
+  else if(mealTime == null){
+    return "Go to the When page to set a Time for the Meal!";
+  }
+  else{
+    return "at " + mealTime + "on " + mealDate;
+  }
   if(mealDate == null){
     return "Go to the When page to set a Date for the Meal!";
   }
@@ -100,7 +100,7 @@ function displayInvitees() {
 }
 function postData() {
   $.post('post_meal.php', {
-      date: mealDate,
+    date: mealDate,
       time: mealTime,
       place: mealPlace,
       invitees: JSON.stringify(mealInvitees),
@@ -117,31 +117,28 @@ $(function() {
    */
   $('.invitee-button').click(function() {
     $(this).toggleClass('selected');
-    if($(this).hasClass('selected')){
-      addInvitee($(this).val());	
+    if ($(this).hasClass('selected')) {
+      addInvitee($(this).attr('value'));	
     }
-    else{
-      removeInvitee($(this).val());
+    else {
+      removeInvitee($(this).attr('value'));
     }
   });
 
+  /*
   $('.invitee-button').click(function() {
     if(!$(this).hasClass('selected')) {
-      console.log('on');
-	  console.log($(this).val());
-	  
-	  
     }
     else {
-      console.log('off');
     }
-  });
+});
+   */
 
   $('.location-button').click(function() {
     if(!$(this).hasClass('ui-state-disabled')){
       $(this).toggleClass('selected');
       if($(this).hasClass('selected')){
-        setPlace($(this).val());
+        setPlace($(this).attr('value'));
       }
       else{
         setPlace(null);
@@ -439,7 +436,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </button>
       </td>
-      
+
 
   </table>
   </div>
@@ -619,7 +616,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
+<<<<<<< HEAD
+      <a data-role="button" data-transition="fade" href="#Confirm">
+=======
       <a data-role="button" data-transition="fade" href="#Confirm" onClick="setInvitees();">
+>>>>>>> dc562f859973f214326351e7cde34073ee51dd57
               Save and Continue
       </a>
   </div>
@@ -671,12 +672,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Time:
                 </h2>
                 <div>
-		  <b>
-			<script type="text/javascript">
-			document.write(displayTime());
-			</script>
-		  	
-		  </b>
+      <b>
+<script type="text/javascript">
+document.write(displayTime());
+</script>
+
+      </b>
                 </div>
               </div>
             </td>
@@ -695,11 +696,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Location:
                 </h2>
                 <div>
-		  <b>
-			<script type="text/javascript">
-			document.write(displayLocation());
-			</script>
-		  </b>
+      <b>
+<script type="text/javascript">
+document.write(displayLocation());
+</script>
+      </b>
                 </div>
               </div>
             </td>
@@ -717,11 +718,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <h2>
                   Invitees:
                 </h2>
-		<div>
-			<script type="text/javascript">
-			document.write(displayInvitees());
-			</script>
-		</div>
+    <div>
+<script type="text/javascript">
+document.write(displayInvitees());
+</script>
+    </div>
               </div>
             </td>
             <td>
