@@ -364,11 +364,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   <table>
 
        <td class="item">
-<<<<<<< HEAD
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aj_perez">
-=======
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="flour" onClick="setPlace('flour');">
->>>>>>> dc562f859973f214326351e7cde34073ee51dd57
             <table>
               <tr><td><img src="images/flour.jpg" alt="Flour" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Flour </td></tr>
