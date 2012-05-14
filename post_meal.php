@@ -51,19 +51,17 @@ $mealresult = mysql_query($queryreal) or die('Could not insert meal parameters.'
 
 $inviteearray = json_decode($_POST['invitees']);
 
-echo $_POST['invitees'];
 echo $inviteearray;
 
 $inviteequery = 'INSERT INTO invitees (meal_id, invitee, rsvp) values';
 //(SELECT max(meal_id) FROM meals;)
 
 foreach ($inviteearray as &$invitee) {
-  $inviteequery .= '(' . '(SELECT max(meal_id) FROM meals;), ' . '\'' . $invitee . '\', \'attending\'),';  
+  $inviteequery .= '(' . '(SELECT max(meal_id) FROM meals), ' . '\'' . $invitee . '\', \'attending\'),';  
 }
 
-echo $inviteequery;
-
 $inviteequery = substr($inviteequery, 0, strlen($inviteequery)-1) . ';';
+echo $inviteequery;
 
 mysql_query($inviteequery);
 ?>
