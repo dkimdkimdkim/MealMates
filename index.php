@@ -112,6 +112,10 @@ function postData() {
 
 $(function() {
 
+  $('#start-over-button').click(function() {
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+  });
+
   /**
    * Listener for invitee buttons.
    */
@@ -194,9 +198,11 @@ $(function() {
   });
   $('#confirm-meal-button').click(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
   });
   $('#cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
   });
 });
     </script>
@@ -751,7 +757,7 @@ document.write(displayInvitees());
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a data-role="button" data-transition="fade" href="#welcome">
+          <a data-role="button" data-transition="fade" href="#welcome" id="start-over-button">
             Start Over
           </a>
         </div>
@@ -833,8 +839,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 <?php
 }
 ?>
-<!--
-  <div data-role="page" id="page9">
+<!-  <div data-role="page" id="page9">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
         <ul>
@@ -929,6 +934,5 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </table>
     </div>
   </div>  
--->
 </body>
 </html>
