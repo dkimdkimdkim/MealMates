@@ -271,7 +271,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </li>
           </ul>
         </div>
-        <div class="ui-grid-a">
+        <!-- <div class="ui-grid-a">
           <div class="ui-block-a">
             <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
@@ -284,7 +284,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               Search
             </a>
           </div>
-        </div>
+	</div> -->
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
@@ -332,7 +332,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </li>
         </ul>
       </div>
-      <div class="ui-grid-a">
+     <!-- <div class="ui-grid-a">
         <div class="ui-block-a">
           <div data-role="fieldcontain">
             <fieldset data-role="controlgroup">
@@ -345,7 +345,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             Search
           </a>
         </div>
-      </div>
+      </div> -->
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <div>
