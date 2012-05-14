@@ -117,7 +117,7 @@ $(function() {
   $('.invitee-button').click(function() {
     if(!$(this).hasClass('selected')) {
       console.log('on');
-	  console.log($(this).value);
+	  console.log($(this).val());
 	  
 	  
     }
