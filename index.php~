@@ -183,20 +183,20 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </li>
           </ul>
         </div>
-        <h1 id="select-time-header">
+        <h2 id="select-time-header">
           Select a date and time that works for you:
-        </h1>
-        <h2 id="available-header">
-          On which date should the meal take place?
         </h2>
+        <h3 id="available-header">
+          On which date should the meal take place?
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
             <input id="calendar-input" class="time-number" placeholder="Enter a date" value="" /> 
           </fieldset>
         </div>
-        <h2 id="available-header">
+        <h3 id="available-header">
           What time do you want the meal to be?
-        </h2>
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
             <input id="from-time-input" class="time-number" placeholder="Enter a time" value="" />
@@ -204,7 +204,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
       </div>
   <div>
-      <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
+      <a data-role="button" data-transition="fade" href="#Where" onClick="setDate(); setTime();">
               Save and Continue
       </a>
   </div>
@@ -245,7 +245,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </div>
           </div>
           <div class="ui-block-b">
-            <a data-role="button" data-transition="fade" href="#page6">
+            <a data-role="button" data-transition="fade" href="#page6" class="search">
               Search
             </a>
           </div>
@@ -306,7 +306,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         <div class="ui-block-b">
-          <a data-role="button" data-transition="fade" href="#page6">
+          <a data-role="button" data-transition="fade" href="#page6" class="search">
             Search
           </a>
         </div>
@@ -321,7 +321,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
         </div>
   <table class="scrollgrid">
-    <tr>
+    
        <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -354,8 +354,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -387,8 +386,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -421,8 +419,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table class="pep-draggable">
@@ -431,7 +428,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
+  
   </table>
         </div>
       </div>
@@ -494,7 +491,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#When">
                   Change
                 </a>
               </div>
@@ -515,7 +512,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#Where">
                   Change
                 </a>
               </div>
@@ -532,7 +529,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#Who">
                   Change
                 </a>
               </div>
@@ -547,7 +544,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea id="description-textarea" rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="2" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
                     </fieldset>
                   </div>
                 </div>
@@ -560,12 +557,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a data-role="button" data-transition="fade" href="#page2">
+          <a data-role="button" data-transition="fade" href="#welcome">
             Start Over
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onclick="setDescription();">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#welcome" onClick="setDescription();">
             Confirm Meal
           </a>
         </div>

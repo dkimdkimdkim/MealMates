@@ -104,10 +104,10 @@ $(function() {
     }
   });
   $('#confirm-meal-button').click(function() {
-    alert('Success! Your invitations have been sent.');
+    alert('Success! Everyone you invited will see your meal invitation on your homepage.');
   });
   $('#cancel-meal').click(function() {
-    alert('Your meal "Family Dinner" has been cancelled.  Everyone you invited will be notified of the cancellation');
+    alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
   });
 });
     </script>
@@ -491,7 +491,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#When">
                   Change
                 </a>
               </div>
@@ -512,7 +512,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#Where">
                   Change
                 </a>
               </div>
@@ -529,7 +529,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </td>
             <td>
               <div class="ui-block-a">
-                <a id="change" data-role="button" data-transition="fade" href="#page7">
+                <a id="change" data-role="button" data-transition="fade" href="#Who">
                   Change
                 </a>
               </div>
@@ -544,7 +544,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea id="description-textarea" rows="8" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="2" cols="30" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
                     </fieldset>
                   </div>
                 </div>
@@ -557,12 +557,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a data-role="button" data-transition="fade" href="#page2">
+          <a data-role="button" data-transition="fade" href="#welcome">
             Start Over
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onClick="setDescription();">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#welcome" onClick="setDescription();">
             Confirm Meal
           </a>
         </div>
