@@ -92,45 +92,6 @@ $(function() {
         </div>
          */
 
-  function init()
-  {
-    //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
-    //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
-    //$('.drag-page').addEventListener("touchmove", touchHandler, true);
-    //$('.drag-page').addEventListener("touchend", touchHandler, true);
-    //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
-  }
-  init();
-  $(".pep-draggable").pep();
-  init();
-  $(".draggable").draggable({
-    revert: true,
-      zIndex: 10,
-  });
-  $(".droppable").droppable({
-    activeClass: "draggable",
-      drop: handleDroppable,
-  });
-  $(".rankDrop").droppable({
-    activeClass: "draggable",
-      drop: handleRankDrop,
-  });
-
-  function handleDroppable(event, ui) {
-    console.log(this);
-    $(this).append(ui.draggable);
-    ui.draggable.draggable( 'option', 'revert', false );
-    ui.draggable.css({'position':'static'});
-  }
-
-  function handleRankDrop(event, ui) {
-    console.log(this);
-    $(this).droppable( 'disable' );
-    $(this).append(ui.draggable);
-    ui.draggable.draggable( 'option', 'revert', false );
-    ui.draggable.css({position:'static'});
-  }
-  //$('#calendar-input').datepicker('option', 'showAnim', 'slide');
   $('#calendar-input').datepicker();
   $('#from-time-input').timepicker({});
   $('#to-time-input').timepicker({});
@@ -230,7 +191,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </h2>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" />
+            <button id="calendar-input" class="time-number"> Enter a date </button>
           </fieldset>
         </div>
         <h2 id="available-header">
@@ -238,7 +199,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </h2>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="from-time-input" class="time-number" placeholder="Enter a time..." value=""/>
+            <button id="from-time-input" class="time-number"> Enter a time </button>
           </fieldset>
         </div>
       </div>
