@@ -72,7 +72,7 @@ $(function() {
   });
 
   $('.location-button').click(function() {
-	  if(!$(this).hasClass('deactivated')){
+	  if(!$(this).hasClass('ui-state-disabled')){
 		  $(this).toggleClass('selected');
 		  if($(this).hasClass('selected')){
 		  	setPlace($(this).val());
@@ -81,7 +81,7 @@ $(function() {
 		  	setPlace(null);
 		  }
 		  $('.location-button').toggleClass('deactivated');
-		  $(this).toggleClass('deactivated');
+		  $(this).toggleClass('ui-state-disabled');
 	  }
   });
 
@@ -168,7 +168,16 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#<?php echo $row['restaurant']; ?>" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+              <a class="restaurant-button" href="#
+
+<?php
+  $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+  $restaurantmappingresult = mysql_query($restaurantquery);
+  $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
+  echo $restaurantrow['restaurant_name'];
+?>
+
+" data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -289,12 +298,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
       </div>
-  <div>
-      <a data-role="button" data-transition="fade" href="#Who">
-              Save and Continue
-      </a>
-  </div>
     </div>
+	<div>
+      	<a data-role="button" data-transition="fade" href="#Who">
+              Save and Continue
+      	</a>
+  	</div>
   </div>
 
   <div data-role="page" id="Who" class="drag-page">
@@ -346,7 +355,8 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         </div>
-  <table class="scrollgrid">
+  <div class="scrollgrid ui-btn-corner-all">
+  <table>
     
        <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aj_perez">
@@ -456,6 +466,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
   
   </table>
+  </div>
         </div>
       </div>
     </div>
@@ -620,13 +631,19 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </li>
   <li>
   <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
-  <?php echo $row['restaurant']; ?>
+<?php
+  //echo $row['restaurant'];
+  $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+  $restaurantmappingresult = mysql_query($restaurantquery);
+  $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
+  echo $restaurantrow['restaurant_name'];
+?>
   </a>
     </li>
     </ul>
     </div>
     <h1>
-    <?php echo $row['restaurant']; ?>
+    <?php echo $restaurantrow['restaurant_name']; ?>
   </h1>
     <h2>
     Time
@@ -647,7 +664,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </h2>
       <div>
         <b>
-          <?php echo $row['restaurant']; ?>
+          <?php echo $restaurantrow['restaurant_name']; ?>
         </b>
       </div>
       <h2>
