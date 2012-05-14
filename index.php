@@ -346,7 +346,8 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         </div>
-  <table class="scrollgrid">
+  <div class="scrollgrid ui-btn-corner-all">
+  <table>
     
        <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aj_perez">
@@ -456,6 +457,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
   
   </table>
+  </div>
         </div>
       </div>
     </div>
