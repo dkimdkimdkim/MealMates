@@ -81,14 +81,14 @@ function displayLocation() {
 }
 
 function displayInvitees() {
-  if(mealInvitees == null){
+  if(mealInvitees.length == 0){
     $('#display-invitees').html("Go to the Who page to invite people to the Meal!");
   }
   else{
     inviteeString = "";
     for(invitee in mealInvitees){
       if(mealInvitees[invitee] != null){
-        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
+        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' width='50px' height='50px'/>");
       }	
     }
     console.log("Invitee String: " + inviteeString);

@@ -274,22 +274,22 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div data-role="navbar" data-iconpos="top">
           <ul>
             <li>
-            <a class="active-top-button" href="When" data-theme="" data-icon="" class="ui-btn-active">
+            <a class="active-top-button" href="When" data-theme="" data-icon="" class="ui-btn-active" onClick="setDate(); setTime();">
               When
             </a>
             </li>
             <li>
-            <a href="#Where" data-theme="" data-icon="">
+            <a href="#Where" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Where
             </a>
             </li>
             <li>
-            <a href="#Who" data-theme="" data-icon="">
+            <a href="#Who" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Who
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="" onClick="setDate(); setTime();">
               Confirm
             </a>
             </li>
