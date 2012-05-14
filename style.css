@@ -2,6 +2,13 @@ h2, h3, p {
   margin: 0;
 }
 
+td {float:left;
+}
+
+.scrollgrid{
+width:45%;
+}
+
 #create-button {
   display: block;
 }
@@ -33,4 +40,22 @@ h2, h3, p {
   border-width: 5px;
   */
   background-color: #000;
+}
+
+.ui-icon-invitee-button {
+  background-color: #FF0;
+}
+
+.search{
+	width: 50%;
+}
+
+.scbutton{
+	}
+
+div.scroll {
+float:left;
+height: 800px;
+width: 200px;
+overflow: auto;
 }

@@ -92,45 +92,6 @@ $(function() {
         </div>
          */
 
-  function init()
-  {
-    //document.getElementsByClassName('drag-page')[0].addEventListener("touchstart", touchHandler, true);
-    //document.getElementsByClassName('drag-page')[1].addEventListener("touchstart", touchHandler, true);
-    //$('.drag-page').addEventListener("touchmove", touchHandler, true);
-    //$('.drag-page').addEventListener("touchend", touchHandler, true);
-    //$('.drag-page').addEventListener("touchcancel", touchHandler, true);    
-  }
-  init();
-  $(".pep-draggable").pep();
-  init();
-  $(".draggable").draggable({
-    revert: true,
-      zIndex: 10,
-  });
-  $(".droppable").droppable({
-    activeClass: "draggable",
-      drop: handleDroppable,
-  });
-  $(".rankDrop").droppable({
-    activeClass: "draggable",
-      drop: handleRankDrop,
-  });
-
-  function handleDroppable(event, ui) {
-    console.log(this);
-    $(this).append(ui.draggable);
-    ui.draggable.draggable( 'option', 'revert', false );
-    ui.draggable.css({'position':'static'});
-  }
-
-  function handleRankDrop(event, ui) {
-    console.log(this);
-    $(this).droppable( 'disable' );
-    $(this).append(ui.draggable);
-    ui.draggable.draggable( 'option', 'revert', false );
-    ui.draggable.css({position:'static'});
-  }
-  //$('#calendar-input').datepicker('option', 'showAnim', 'slide');
   $('#calendar-input').datepicker();
   $('#from-time-input').timepicker({});
   $('#to-time-input').timepicker({});
@@ -222,28 +183,28 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </li>
           </ul>
         </div>
-        <h1 id="select-time-header">
+        <h2 id="select-time-header">
           Select a date and time that works for you:
-        </h1>
-        <h2 id="available-header">
-          On which date should the meal take place?
         </h2>
+        <h3 id="available-header">
+          On which date should the meal take place?
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="calendar-input" class="time-number" placeholder="Enter a date..." value="" />
+            <input id="calendar-input" class="time-number" placeholder="Enter a date" value="" /> 
           </fieldset>
         </div>
-        <h2 id="available-header">
+        <h3 id="available-header">
           What time do you want the meal to be?
-        </h2>
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <input id="from-time-input" class="time-number" placeholder="Enter a time..." value=""/>
+            <input id="from-time-input" class="time-number" placeholder="Enter a time" value="" />
           </fieldset>
         </div>
       </div>
   <div>
-      <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
+      <a data-role="button" data-transition="fade" href="#Where" onClick="setDate(); setTime();">
               Save and Continue
       </a>
   </div>
@@ -284,7 +245,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </div>
           </div>
           <div class="ui-block-b">
-            <a data-role="button" data-transition="fade" href="#page6">
+            <a data-role="button" data-transition="fade" href="#page6" class="search">
               Search
             </a>
           </div>
@@ -345,7 +306,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         <div class="ui-block-b">
-          <a data-role="button" data-transition="fade" href="#page6">
+          <a data-role="button" data-transition="fade" href="#page6" class="search">
             Search
           </a>
         </div>
@@ -360,7 +321,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
         </div>
   <table class="scrollgrid">
-    <tr>
+    
        <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -393,8 +354,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -426,8 +386,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -460,8 +419,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table class="pep-draggable">
@@ -470,7 +428,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
+  
   </table>
         </div>
       </div>
@@ -604,7 +562,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onclick="setDescription();">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onClick="setDescription();">
             Confirm Meal
           </a>
         </div>
