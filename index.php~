@@ -106,6 +106,10 @@ function postData() {
 
 $(function() {
 
+  $('#start-over-button').click(function() {
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+  });
+
   /**
    * Listener for invitee buttons.
    */
@@ -142,11 +146,12 @@ $(function() {
     }
   });
 
-  $('.button-confirm').click(function() {
+  /*$('.button-confirm').click(function() {
+	console.log("Confirm button clicked");
 	displayTime();
 	displayLocation();
 	displayInvitees();
-  });
+});*/
 
 
 
@@ -194,9 +199,11 @@ $(function() {
   });
   $('#confirm-meal-button').click(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
   });
   $('#cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
+    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
   });
 });
     </script>
@@ -279,7 +286,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
               Confirm
             </a>
             </li>
@@ -332,7 +339,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
               Confirm
             </a>
             </li>
@@ -355,9 +362,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
-              <b>
+              <h2>
                 Places to be added
-              </b>
+              </h2>
             </div>
           </div>
     <div class="scrollgrid ui-btn-corner-all">
@@ -473,7 +480,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
+          <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
             Confirm
           </a>
           </li>
@@ -496,9 +503,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <div>
-            <b>
+            <h2>
               Invite people!
-            </b>
+            </h2>
           </div>
         </div>
         </div>
@@ -616,7 +623,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm">
+      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm"  onClick="displayTime(); displayLocation(); displayInvitees();">
               Save and Continue
       </a>
   </div>
@@ -645,7 +652,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
+          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active" onClick="displayTime(); displayLocation(); displayInvitees();">
             Confirm
           </a>
           </li>
@@ -741,7 +748,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </div>
       <div class="ui-grid-a">
         <div class="ui-block-a">
-          <a data-role="button" data-transition="fade" href="#welcome">
+          <a data-role="button" data-transition="fade" href="#welcome" id="start-over-button">
             Start Over
           </a>
         </div>
@@ -823,8 +830,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 <?php
 }
 ?>
-<!--
-  <div data-role="page" id="page9">
+<!-  <div data-role="page" id="page9">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
         <ul>
@@ -919,6 +925,5 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </table>
     </div>
   </div>  
--->
 </body>
 </html>

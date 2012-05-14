@@ -362,9 +362,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
-              <b>
+              <h2>
                 Places to be added
-              </b>
+              </h2>
             </div>
           </div>
     <div class="scrollgrid ui-btn-corner-all">
@@ -503,9 +503,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <div>
-            <b>
+            <h2>
               Invite people!
-            </b>
+            </h2>
           </div>
         </div>
         </div>
