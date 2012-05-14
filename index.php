@@ -262,7 +262,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 
  data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
             </div>
-            <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
+            <span class="time-window ui-block-b"><strong>at <?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
         </div>
 <?php
