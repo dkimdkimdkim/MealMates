@@ -183,23 +183,23 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </li>
           </ul>
         </div>
-        <h1 id="select-time-header">
+        <h2 id="select-time-header">
           Select a date and time that works for you:
-        </h1>
-        <h2 id="available-header">
-          On which date should the meal take place?
         </h2>
+        <h3 id="available-header">
+          On which date should the meal take place?
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <button id="calendar-input" class="time-number"> Enter a date </button>
+            <input id="calendar-input" class="time-number" placeholder="Enter a date" value="" /> 
           </fieldset>
         </div>
-        <h2 id="available-header">
+        <h3 id="available-header">
           What time do you want the meal to be?
-        </h2>
+        </h3>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
-            <button id="from-time-input" class="time-number"> Enter a time </button>
+            <input id="from-time-input" class="time-number" placeholder="Enter a time" value="" />
           </fieldset>
         </div>
       </div>
