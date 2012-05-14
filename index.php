@@ -48,6 +48,15 @@ function setDescription() {
 }
 
 function displayTime() {
+	if(mealDate == null){
+		return "Go to the When page to set a Date for the Meal!";
+	}
+	else if(mealTime == null){
+		return "Go to the When page to set a Time for the Meal!";
+	}
+	else{
+		return "at " + mealTime + "on " + mealDate;
+	}
   if(mealDate == null){
     return "Go to the When page to set a Date for the Meal!";
   }
@@ -55,8 +64,9 @@ function displayTime() {
     return "Go to the When page to set a Time for the Meal!";
   }
   else{
-    return "at " + mealTime + "on " mealDate;
+    return "at " + mealTime + "on " + mealDate;
   }
+
 }
 
 function displayLocation() {
