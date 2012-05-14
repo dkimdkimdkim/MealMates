@@ -18,33 +18,14 @@ $mealresult = mysql_query($queryreal) or die('Could not insert meal parameters.'
 
 $inviteearray = unserialize($_POST['invitees']);
 
-$jsonarray = array();
-$inviteearray = array();
+$inviteequery = 'INSERT INTO invitees (meal_id, invitee, rsvp) values';
+//(SELECT max(meal_id) FROM meals;)
 
-while($row = mysql_fetch_assoc($mealresult)) {
-  $row = array_map("utf8_encode", $row);
-
-  // Retrieve invitees.
-  $querytemplate = 'SELECT * FROM invitees WHERE meal_id=' . $row['meal_id'] . ';';
-  $queryreal = sprintf($querytemplate);
-
-  $inviteeresult = mysql_query($queryreal) or die('Could not select invitees table');
-
-  while($inviteerow = mysql_fetch_assoc($inviteeresult)) {
-    $inviteearray[] = array($inviteerow['invitee'], $inviteerow['rsvp']);
-  }
-
-  $singlemeal = array('creator' => $row['creator'],
-                      'restaurant' => $row['restaurant'],
-                      'description' => $row['description'],
-                      'start_time' => $row['start_time'],
-                      'date' => $row['date'],
-                      'canceled' => $row['canceled'],
-                      'invitees' => $inviteearray);
-  $jsonarray[] = $singlemeal;
-  $inviteearray = array();
+foreach ($inviteearray as &$invitee) {
+  $inviteequery .= '(' . '(SELECT max(meal_id) FROM meals;), ' . '\'' . $invitee . '\', \'yes\'),';  
 }
-header("Content-Type: application/json");
-echo json_encode($jsonarray);
 
+$inviteequery = substr($inviteequery, 0, strlen($inviteequery)-1) . ';';
+
+mysql_query($inviteequery);
 ?>
