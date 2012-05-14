@@ -1,2 +1,2 @@
 #!/bin/bash
-scp * dmwkim@linux.mit.edu:web_scripts/mealmates/
+scp -r * dmwkim@linux.mit.edu:web_scripts/mealmates/
