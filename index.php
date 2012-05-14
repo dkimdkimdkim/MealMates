@@ -312,9 +312,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
             <input id="calendar-input" class="time-number" placeholder="Enter a date" value="" /> 
           </fieldset>
         </div>
-        <h3 id="available-header">
+        <h4 id="available-header">
           What time do you want the meal to be?
-        </h3>
+        </h4>
         <div data-role="fieldcontain">
           <fieldset data-role="controlgroup">
             <input id="from-time-input" class="time-number" placeholder="Enter a time" value="" />
@@ -392,7 +392,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="bertuccis" onClick="setPlace('bertuccis');">
             <table>
               <tr><td><img src="images/bertuccis2.jpg" alt="Bertucci's" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Bertucci's </td></tr>
+              <tr><td class="draggableText">Bertucci</td></tr>
     </table>
     </a>
        </td>
@@ -400,7 +400,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="kendall_kitchen" onClick="setPlace('kendall_kitchen');">
             <table>
               <tr><td><img src="images/kendall.jpg" alt="Kendall Kitchen" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Kendall Kitchen </td></tr>
+              <tr><td class="draggableText">Kendalls </td></tr>
     </table>
     </a>
       </td>
@@ -408,7 +408,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="unos" onClick="setPlace('unos');">
             <table>
               <tr><td><img src="images/unos.jpg" alt="UNO'S" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> UNO's </td></tr>
+              <tr><td class="draggableText">UNO's</td></tr>
     </table>
     </a>
       </td>
@@ -417,14 +417,14 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="au_bon_pain" onclick="setPlace('au_bon_pain');">
             <table>
               <tr><td><img src="images/abp.jpg" alt="Au Bon Pain" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Au Bon Pain </td></tr>
+              <tr><td class="draggableText">ABP</td></tr>
     </table>
       </td>
       <td class="item">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="cuchi_cuchi" onClick="setPlace('cuchi_cuchi');">
             <table>
               <tr><td><img src="images/cuchi-cuchi.jpg" alt="Cuchi Cuchi" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Cuchi Cuchi </td></tr>
+              <tr><td class="draggableText">Cuchi</td></tr>
     </table>
     </a>
       </td>
@@ -432,7 +432,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="friendly_toast" onClick="setPlace('friendly_toast');">
     <table>
               <tr><td><img src="images/friendlytoast.jpg" alt="Friendly Toast" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Friendly Toast </td></tr>
+              <tr><td class="draggableText">F. Toast</td></tr>
     </table>
     </a>
       </td>
@@ -440,7 +440,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="capital_grill"  onclick="setPlace('capital_grill');">
             <table>
               <tr><td><img src="images/capitalgrille.jpg" alt="Capital Grill" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Capital Grill </td></tr>
+              <tr><td class="draggableText">Capital G.</td></tr>
     </table>
     </a>
       </td>
@@ -449,7 +449,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="tapeo" onclick="setPlace('tapeo');">
             <table>
               <tr><td><img src="images/tapeo.jpg" alt="Tapeo" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Tapeo </td></tr>
+              <tr><td class="draggableText">Tapeo</td></tr>
     </table>
     </button>
       </td>
@@ -527,7 +527,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aj_perez">
             <table>
               <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> AJ Perez </td></tr>
+              <tr><td class="draggableText">AJ P.</td></tr>
     </table>
     </a>
        </td>
@@ -535,7 +535,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="akira_monri">
             <table>
               <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Akira Monri </td></tr>
+              <tr><td class="draggableText">Akira M. </td></tr>
     </table>
     </a>
        </td>
@@ -543,7 +543,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="alex_wang">
             <table>
               <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Alex Wang </td></tr>
+              <tr><td class="draggableText">Alex W.</td></tr>
     </table>
     </a>
       </td>
@@ -551,7 +551,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aviv_cukierman">
             <table>
               <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Aviv Cukierman </td></tr>
+              <tr><td class="draggableText">Aviv C.</td></tr>
     </table>
     </a>
       </td>
@@ -560,14 +560,14 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="brian_bell">
             <table>
               <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Brian Bell </td></tr>
+              <tr><td class="draggableText">Brian B.</td></tr>
     </table>
       </td>
       <td class="item">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="chris_haid">
             <table>
               <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Chris Haid </td></tr>
+              <tr><td class="draggableText">Chris H.</td></tr>
     </table>
     </a>
       </td>
@@ -575,7 +575,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="david_kim">
     <table>
               <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> David Kim </td></tr>
+              <tr><td class="draggableText">David K.</td></tr>
     </table>
     </a>
       </td>
@@ -583,7 +583,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="feynman_liang">
             <table>
               <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Feynman Liang </td></tr>
+              <tr><td class="draggableText">Feyn L.</td></tr>
     </table>
     </a>
       </td>
@@ -592,7 +592,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="jake_varley">
             <table>
               <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Jake Varley </td></tr>
+              <tr><td class="draggableText">Jake V. </td></tr>
     </table>
     </button>
       </td>
@@ -600,7 +600,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="jimmy_pershken">
             <table>
               <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Jimmy P. </td></tr>
+              <tr><td class="draggableText">Jim P.</td></tr>
     </table>
     </a>
       </td>
@@ -608,7 +608,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="mark_zuckerberg">
             <table>
               <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Mark Z. </td></tr>
+              <tr><td class="draggableText">Mark Z.</td></tr>
     </table>
     </a>
       </td>
@@ -616,7 +616,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="mercedes_oliva">
             <table>
               <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Mercedes Oliva </td></tr>
+              <tr><td class="draggableText">Meg O.</td></tr>
     </table>
     </a>
       </td>
@@ -625,7 +625,7 @@ margin-bottom: 10px;">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="ron_rosenberg">
             <table class="pep-draggable">
               <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
-              <tr><td class="draggableText"> Ron R. </td></tr>
+              <tr><td class="draggableText">Ron R.</td></tr>
     </table>
     </a>
       </td>
