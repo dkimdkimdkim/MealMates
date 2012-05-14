@@ -289,12 +289,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
       </div>
-  <div>
-      <a data-role="button" data-transition="fade" href="#Who">
-              Save and Continue
-      </a>
-  </div>
     </div>
+	<div>
+      	<a data-role="button" data-transition="fade" href="#Who">
+              Save and Continue
+      	</a>
+  	</div>
   </div>
 
   <div data-role="page" id="Who" class="drag-page">
