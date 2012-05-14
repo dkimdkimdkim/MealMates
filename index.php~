@@ -688,7 +688,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Time:
                 </h2>
                 <div>
-                  <b value="displayTime();"></b>
+		  <b>
+			<script type="text/javascript">
+			document.write(displayTime());
+			</script>
+		  	
+		  </b>
                 </div>
               </div>
             </td>
@@ -707,7 +712,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Location:
                 </h2>
                 <div>
-                  <b value="displayLocation();"></b>
+		  <b>
+			<script type="text/javascript">
+			document.write(displayLocation());
+			</script>
+		  </b>
                 </div>
               </div>
             </td>
@@ -725,7 +734,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <h2>
                   Invitees:
                 </h2>
-                <div value="displayInvitees();"></div>
+		<div>
+			<script type="text/javascript">
+			document.write(displayInvitees());
+			</script>
+		</div>
               </div>
             </td>
             <td>

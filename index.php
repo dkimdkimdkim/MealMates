@@ -131,7 +131,7 @@ $(function() {
       else{
         setPlace(null);
       }
-      $('.location-button').toggleClass('deactivated');
+      $('.location-button').toggleClass('ui-state-disabled');
       $(this).toggleClass('ui-state-disabled');
     }
   });
