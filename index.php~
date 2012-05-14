@@ -48,7 +48,35 @@ function setDescription() {
 }
 
 function displayTime() {
-	if(
+	if(mealDate == null){
+		return "Go to the When page to set a Date for the Meal!";
+	}
+	else if(mealTime == null){
+		return "Go to the When page to set a Time for the Meal!";
+	}
+	else{
+		return "at " + mealTime + "on " mealDate;
+	}
+}
+
+function displayLocation() {
+	if(mealPlace == null){
+		return "Go to the Where page to set a Location for the Meal!";
+	}
+}
+
+function displayInvitees() {
+	if(mealInvitees == null){
+		return "Go to the Who page to invite people to the Meal!";
+	}
+	else{
+		inviteeString = "";
+		for(invitee in mealInvitees){
+			if(mealInvitees[invitee] == true){
+				inviteeString.concat("<img src='images/" + invitee + ".jpg' alt='" + invitee + "' width='50px' height='50px'/>");
+			}	
+		}
+	}
 }
 
 $(function() {
@@ -178,7 +206,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
-  echo $restaurantrow['restaurant_name'];
+  //echo $restaurantrow['restaurant_name'];
+  //echo $row['restaurant'];
+  echo 'Confirm';
 ?>
 
 " data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
@@ -656,9 +686,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Location:
                 </h2>
                 <div>
-                  <b>
-                    Toscanini's
-                  </b>
+                  <b value="displayLocation();"></b>
                 </div>
               </div>
             </td>
@@ -676,7 +704,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <h2>
                   Invitees:
                 </h2>
-                <img src="images/david_kim.jpg" alt="image" width="50px" height="50px"/>
+                <div value="displayInvitees();"></div>
               </div>
             </td>
             <td>
@@ -745,7 +773,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </a>
   </li>
   <li>
-  <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
+  <a class="active-top-button" href="<?php echo $row['restaurant']; ?>" data-theme="" data-icon="" class="ui-btn-active">
 <?php
   //echo $row['restaurant'];
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';

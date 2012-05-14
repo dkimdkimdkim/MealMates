@@ -505,7 +505,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   <table>
     
        <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aj_perez">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="AJ Perez">
             <table>
               <tr><td><img src="images/aj_perez.jpg" alt="AJ Perez" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> AJ Perez </td></tr>
@@ -513,7 +513,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
        </td>
        <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="akira_monri">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Akira Monri">
             <table>
               <tr><td><img src="images/akira_monri.jpg" alt="Akira Monri" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Akira Monri </td></tr>
@@ -521,7 +521,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
        </td>
        <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="alex_wang">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Alex Wang">
             <table>
               <tr><td><img src="images/alex_wang.jpg" alt="Alex Wang" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Alex Wang </td></tr>
@@ -529,7 +529,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aviv_cukierman">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Aviv Cuckierman">
             <table>
               <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Aviv Cukierman </td></tr>
@@ -538,14 +538,14 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
   
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="brian_bell">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Brian Bell">
             <table>
               <tr><td><img src="images/brian_bell.jpg" alt="Brian Bell" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Brian Bell </td></tr>
     </table>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="chris_haid">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Chris Haid">
             <table>
               <tr><td><img src="images/chris_haid.jpg" alt="Chris Haid" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Chris Haid </td></tr>
@@ -553,7 +553,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="david_kim">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="David Kim">
     <table>
               <tr><td><img src="images/david_kim.jpg" alt="David Kim" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> David Kim </td></tr>
@@ -561,7 +561,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="feynman_liang">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Feynman Liang">
             <table>
               <tr><td><img src="images/feynman_liang.jpg" alt="Feynman Liang" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Feynman Liang </td></tr>
@@ -570,7 +570,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
   
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="jake_varley">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Jake Varley">
             <table>
               <tr><td><img src="images/jake_varley.jpg" alt="Jake Varley" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Jake Varley </td></tr>
@@ -578,7 +578,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </button>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="jimmy_pershken">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Jimmy Pershken">
             <table>
               <tr><td><img src="images/jimmy_pershken.jpg" alt="Jimmy Pershken" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Jimmy P. </td></tr>
@@ -586,7 +586,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="mark_zuckerberg">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Mark Zuckerberg">
             <table>
               <tr><td><img src="images/mark_zuckerberg.jpg" alt="Mark Zuckerberg" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Mark Z. </td></tr>
@@ -594,7 +594,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="mercedes_oliva">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Mercedes Oliva">
             <table>
               <tr><td><img src="images/mercedes_oliva.jpg" alt="Mercedes Oliva" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Mercedes Oliva </td></tr>
@@ -603,7 +603,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
   
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="ron_rosenberg">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Ron Rosenberg">
             <table class="pep-draggable">
               <tr><td><img src="images/ron_rosenberg.jpg" alt="Ron Rosenberg" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Ron R. </td></tr>
