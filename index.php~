@@ -24,7 +24,7 @@ error_reporting(E_ALL);
 var mealDate;
 var mealTime;
 var mealPlace;
-var mealInvitees = [];
+var mealInvitees = {};
 var mealDescription;
 function setDate() {
   mealDate = $('#calendar-input').val();
@@ -39,15 +39,16 @@ function addInvitee(invitee) {
   mealInvitees[invitee] = true;
 }
 function removeInvitee(invitee) {
-	if(mealInvitees[invitee] != null){
-		mealInvitees[invitee] = false;
-	}
+  if(mealInvitees[invitee] != null){
+    mealInvitees[invitee] = false;
+  }
 }
 function setDescription() {
   mealDescription = $('#description-textarea').val();
 }
 
 function displayTime() {
+<<<<<<< HEAD
 	if(mealDate == null){
 		return "Go to the When page to set a Date for the Meal!";
 	}
@@ -55,28 +56,48 @@ function displayTime() {
 		return "Go to the When page to set a Time for the Meal!";
 	}
 	else{
-		return "at " + mealTime + "on " mealDate;
+		return "at " + mealTime + "on " + mealDate;
 	}
+=======
+  if(mealDate == null){
+    return "Go to the When page to set a Date for the Meal!";
+  }
+  else if(mealTime == null){
+    return "Go to the When page to set a Time for the Meal!";
+  }
+  else{
+    return "at " + mealTime + "on " mealDate;
+  }
+>>>>>>> e0faee4102510763958eab74d3eec7a4bfdcc86e
 }
 
 function displayLocation() {
-	if(mealPlace == null){
-		return "Go to the Where page to set a Location for the Meal!";
-	}
+  if(mealPlace == null){
+    return "Go to the Where page to set a Location for the Meal!";
+  }
 }
 
 function displayInvitees() {
-	if(mealInvitees == null){
-		return "Go to the Who page to invite people to the Meal!";
-	}
-	else{
-		inviteeString = "";
-		for(invitee in mealInvitees){
-			if(mealInvitees[invitee] == true){
-				inviteeString.concat("<img src='images/" + invitee + ".jpg' alt='" + invitee + "' width='50px' height='50px'/>");
-			}	
-		}
-	}
+  if(mealInvitees == null){
+    return "Go to the Who page to invite people to the Meal!";
+  }
+  else{
+    inviteeString = "";
+    for(invitee in mealInvitees){
+      if(mealInvitees[invitee] == true){
+        inviteeString.concat("<img src='images/" + invitee + ".jpg' alt='" + invitee + "' width='50px' height='50px'/>");
+      }	
+    }
+  }
+}
+function postData() {
+  $.post('post_meal.php', {
+    date: mealDate,
+      time: mealTime,
+      place: mealPlace,
+      invitees: JSON.stringify(mealInvitees),
+      description: mealDescription
+  });
 }
 
 $(function() {
@@ -85,13 +106,13 @@ $(function() {
    * Listener for invitee buttons.
    */
   $('.invitee-button').click(function() {
-	$(this).toggleClass('selected');
-	if($(this).hasClass('selected')){
-		addInvitee($(this).val());	
-	}
-	else{
-		removeInvitee($(this).val());
-	}
+    $(this).toggleClass('selected');
+    if($(this).hasClass('selected')){
+      addInvitee($(this).val());	
+    }
+    else{
+      removeInvitee($(this).val());
+    }
   });
 
   $('.invitee-button').click(function() {
@@ -104,17 +125,17 @@ $(function() {
   });
 
   $('.location-button').click(function() {
-	  if(!$(this).hasClass('ui-state-disabled')){
-		  $(this).toggleClass('selected');
-		  if($(this).hasClass('selected')){
-		  	setPlace($(this).val());
-		  }
-		  else{
-		  	setPlace(null);
-		  }
-		  $('.location-button').toggleClass('deactivated');
-		  $(this).toggleClass('ui-state-disabled');
-	  }
+    if(!$(this).hasClass('ui-state-disabled')){
+      $(this).toggleClass('selected');
+      if($(this).hasClass('selected')){
+        setPlace($(this).val());
+      }
+      else{
+        setPlace(null);
+      }
+      $('.location-button').toggleClass('deactivated');
+      $(this).toggleClass('ui-state-disabled');
+    }
   });
 
 
@@ -200,18 +221,20 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#
+              <a class="restaurant-button" href=
 
-<?php
+              "#<?php
+
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
   //echo $restaurantrow['restaurant_name'];
-  //echo $row['restaurant'];
-  echo 'Confirm';
-?>
+  echo $row['restaurant'];
+  //echo 'Confirm';
 
-" data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
+?>"
+
+ data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -318,7 +341,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               Search
             </a>
           </div>
-	</div> -->
+  </div> -->
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
@@ -329,7 +352,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
     <div class="scrollgrid ui-btn-corner-all">
   <table>
-    
+
        <td class="item">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aj_perez">
             <table>
@@ -362,7 +385,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="brian_bell">
             <table>
@@ -394,7 +417,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="jake_varley">
             <table>
@@ -427,7 +450,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="ron_rosenberg">
             <table class="pep-draggable">
@@ -436,20 +459,20 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
   </table>
   </div>
           </div>
         </div>
         <div>
-      	<a data-role="button" data-transition="fade" href="#Who">
+        <a data-role="button" data-transition="fade" href="#Who">
               Save and Continue
-      	</a>
-  	</div>
-      </div>
-      
+        </a>
     </div>
-	
+      </div>
+
+    </div>
+
   </div>
 
   <div data-role="page" id="Who" class="drag-page">
@@ -503,7 +526,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
   <div class="scrollgrid ui-btn-corner-all">
   <table>
-    
+
        <td class="item">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="AJ Perez">
             <table>
@@ -536,7 +559,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Brian Bell">
             <table>
@@ -568,7 +591,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Jake Varley">
             <table>
@@ -601,7 +624,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
       <td class="item">
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="Ron Rosenberg">
             <table class="pep-draggable">
@@ -610,7 +633,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  
+
   </table>
   </div>
         </div>
@@ -621,7 +644,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
       </div>
     </div>
-  
+
   </div>
 
   <div data-role="page" id="Confirm">
