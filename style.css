@@ -51,7 +51,8 @@ width:45%;
 	float: right;
 }
 
-.scbutton{
+.upbutton{
+	background-color: #82a8d2;
 	}
 
 div.scroll {
@@ -59,4 +60,11 @@ float:left;
 height: 800px;
 width: 200px;
 overflow: auto;
+}
+
+.ui-body-c, .ui-overlay-c {
+	background-image: -webkit-gradient(linear,left top,left bottom,from(#11446B),to(#60D784));
+background-image: -webkit-linear-gradient(#11446B,#60D784);
+	color:white;
+	text-shadow: 0 0px 0 black;
 }
