@@ -616,11 +616,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-<<<<<<< HEAD
       <a data-role="button" data-transition="fade" href="#Confirm">
-=======
-      <a data-role="button" data-transition="fade" href="#Confirm" onClick="setInvitees();">
->>>>>>> dc562f859973f214326351e7cde34073ee51dd57
               Save and Continue
       </a>
   </div>
