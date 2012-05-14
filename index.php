@@ -26,6 +26,15 @@ var mealTime;
 var mealPlace;
 var mealInvitees = {};
 var mealDescription;
+
+function debugData() {
+  console.log('mealDate: ' + mealDate);
+  console.log('mealTime: ' + mealTime);
+  console.log('mealPlace: ' + mealPlace);
+  console.log('mealInvitees: ' + mealInvitees);
+  console.log('mealDescription: ' + mealDescription);
+}
+
 function setDate() {
   mealDate = $('#calendar-input').val();
 }
@@ -90,11 +99,13 @@ function displayInvitees() {
 }
 function postData() {
   $.post('post_meal.php', {
-    date: mealDate,
+      date: mealDate,
       time: mealTime,
       place: mealPlace,
       invitees: JSON.stringify(mealInvitees),
       description: mealDescription
+  }, function(data) {
+    console.log(data);
   });
 }
 
@@ -636,7 +647,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-      <a data-role="button" data-transition="fade" href="#Confirm">
+      <a data-role="button" data-transition="fade" href="#Confirm" onclick="setInvitees();">
               Save and Continue
       </a>
   </div>
@@ -758,7 +769,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea id="description-textarea" rows="2" cols="6" placeholder="Optional:  Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="2" cols="6" placeholder="Optional: Give your meal a description so others know what's going on!" value="" type="text"></textarea>
                     </fieldset>
                   </div>
                 </div>
@@ -776,7 +787,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#welcome" onClick="setDescription();">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#welcome" onClick="setDescription(); postData();">
             Confirm Meal
           </a>
         </div>
