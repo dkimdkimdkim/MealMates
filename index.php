@@ -770,10 +770,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
 $querytemplate = 'SELECT * FROM meals ORDER BY date, start_time;';
 $queryreal = sprintf($querytemplate);
 
+/*
 $link = mysql_connect('sql.mit.edu', 'dmwkim', '97baystate')
   or die('Could not connect ' . mysql_error());
 mysql_select_db('dmwkim+mealmates') or die('Could not select database');
-
+ */
 $mealresult = mysql_query($queryreal) or die('Could not select meals table');
 /*
 while($row = mysql_fetch_assoc($mealresult)) {
@@ -790,11 +791,13 @@ while($row = mysql_fetch_assoc($mealresult)) {
   <li>
   <a class="active-top-button" href="<?php echo $row['restaurant']; ?>2" data-theme="" data-icon="" class="ui-btn-active">
 <?php
+ */
   //echo $row['restaurant'];
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
   //echo $restaurantrow['restaurant_name'];
+/*
 ?>
   </a>
     </li>
@@ -834,12 +837,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
 <?php
 }
  */
-
+/*
 $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
 $restaurantmappingresult = mysql_query($restaurantquery);
 $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
-
-echo $restaurantrow['restaurant_name'];
+ */
+echo $restaurantrow;
 
 while($row = mysql_fetch_assoc($mealresult)) {
 ?>
