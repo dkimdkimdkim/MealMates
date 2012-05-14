@@ -24,7 +24,7 @@ error_reporting(E_ALL);
 var mealDate;
 var mealTime;
 var mealPlace;
-var mealInvitees = {};
+var mealInvitees = [];
 var mealDescription;
 function setDate() {
   mealDate = $('#calendar-input').val();
@@ -36,12 +36,13 @@ function setPlace(place) {
   mealPlace = place;
 }
 function addInvitee(invitee) {
-  mealInvitees[invitee] = true;
+  mealInvitees.push(invitee);
+  console.log(invitee);
 }
 function removeInvitee(invitee) {
-  if(mealInvitees[invitee] != null){
-    mealInvitees[invitee] = false;
-  }
+	mealInvitees = jQuery.grep(mealInvitees, function(value) {
+    return value != invitee;
+});
 }
 function setDescription() {
   mealDescription = $('#description-textarea').val();
@@ -116,6 +117,9 @@ $(function() {
   $('.invitee-button').click(function() {
     if(!$(this).hasClass('selected')) {
       console.log('on');
+	  console.log($(this).value);
+	  
+	  
     }
     else {
       console.log('off');
