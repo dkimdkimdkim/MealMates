@@ -82,7 +82,7 @@ function displayLocation() {
 
 function displayInvitees() {
   if(mealInvitees.length == 0){
-    $('#display-invitees').html("Go to the Who page to invite people to the Meal!");
+    $('#display-invitees').html("<b> Go to the Who page to invite people to the Meal! </b>");
   }
   else{
     inviteeString = "";
