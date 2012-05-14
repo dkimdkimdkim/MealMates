@@ -150,10 +150,10 @@ $(function() {
   });
 
   $('.button-confirm').click(function() {
-	console.log("Confirm button clicked");
-	displayTime();
-	displayLocation();
-	displayInvitees();
+    console.log("Confirm button clicked");
+    displayTime();
+    displayLocation();
+    displayInvitees();
   });
 
 
@@ -202,11 +202,11 @@ $(function() {
   });
   $('#confirm-meal-button').click(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
-    //window.location.href = '/mealmates/';
+    window.location.href = '/mealmates/';
   });
   $('#cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
-    //window.location.href = '/mealmates/';
+    window.location.href = '/mealmates/';
   });
 });
     </script>
@@ -791,13 +791,13 @@ while($row = mysql_fetch_assoc($mealresult)) {
   <li>
   <a class="active-top-button" href="<?php echo $row['restaurant']; ?>2" data-theme="" data-icon="" class="ui-btn-active">
 <?php
- */
+
   //echo $row['restaurant'];
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
   //echo $restaurantrow['restaurant_name'];
-/*
+
 ?>
   </a>
     </li>
@@ -837,14 +837,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
 <?php
 }
  */
-/*
-$restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
-$restaurantmappingresult = mysql_query($restaurantquery);
-$restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
- */
-echo $restaurantrow;
 
 while($row = mysql_fetch_assoc($mealresult)) {
+  $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+  $restaurantmappingresult = mysql_query($restaurantquery);
+  $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
 ?>
   <div data-role="page" id="<?php echo $row['restaurant']; ?>">
     <div data-role="content">
@@ -881,7 +878,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   echo ' on ';
   echo date("m-d-Y", strtotime($row['date']));
 ?>
-                
+
                 <br />
               </b>
             </div>
@@ -908,14 +905,14 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </h2>
           </td>
 <?php
-  
-  $inviteequery = "SELECT inv.invitee from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . " and m.meal_id = inv.meal_id;";
-  $inviteemappingresult = mysql_query($restaurantquery);
 
-while($inviteerow = mysql_fetch_assoc($inviteemappingresult)) {
+  $inviteequery = "SELECT inv.invitee as person from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . " and m.meal_id = inv.meal_id;";
+  $inviteemappingresult = mysql_query($inviteequery);
+
+  while($inviteerow = mysql_fetch_assoc($inviteemappingresult)) {
 ?>
           <td>
-          <img src="images/<?php echo $inviteerow['invitee']; ?>.jpg" alt="image" width="50px" height="50px" />
+          <img src="images/<?php echo $inviteerow['person']; ?>.jpg" alt="image" width="50px" height="50px" />
             </td>
 <?php
   }
