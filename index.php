@@ -31,7 +31,7 @@ function debugData() {
   console.log('mealDate: ' + mealDate);
   console.log('mealTime: ' + mealTime);
   console.log('mealPlace: ' + mealPlace);
-  console.log('mealInvitees: ' + mealInvitees);
+  console.log(mealInvitees);
   console.log('mealDescription: ' + mealDescription);
 }
 
@@ -107,7 +107,7 @@ function postData() {
 $(function() {
 
   $('#start-over-button').click(function() {
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    window.location.href = '/mealmates/';
   });
 
   /**
@@ -198,11 +198,11 @@ $(function() {
   });
   $('#confirm-meal-button').click(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    //window.location.href = '/mealmates/';
   });
   $('#cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    //window.location.href = '/mealmates/';
   });
 });
     </script>
@@ -829,7 +829,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 <?php
 }
 ?>
-<!-  <div data-role="page" id="page9">
+<div data-role="page" id="page9">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
         <ul>
