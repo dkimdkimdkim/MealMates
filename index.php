@@ -204,7 +204,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
       </div>
   <div>
-      <a data-role="button" data-transition="fade" href="#Where" onclick="setDate(); setTime();">
+      <a data-role="button" data-transition="fade" href="#Where" onClick="setDate(); setTime();">
               Save and Continue
       </a>
   </div>
@@ -245,7 +245,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </div>
           </div>
           <div class="ui-block-b">
-            <a data-role="button" data-transition="fade" href="#page6">
+            <a data-role="button" data-transition="fade" href="#page6" class="search">
               Search
             </a>
           </div>
@@ -306,7 +306,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         <div class="ui-block-b">
-          <a data-role="button" data-transition="fade" href="#page6">
+          <a data-role="button" data-transition="fade" href="#page6" class="search">
             Search
           </a>
         </div>
@@ -321,7 +321,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </div>
         </div>
   <table class="scrollgrid">
-    <tr>
+    
        <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -354,8 +354,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -387,8 +386,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table>
@@ -421,8 +419,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
-  <tr>
+  
       <td>
     <a data-role="button" class="invitee-button" data-inline="true" data-mini="true">
             <table class="pep-draggable">
@@ -431,7 +428,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </table>
     </a>
       </td>
-  </tr>
+  
   </table>
         </div>
       </div>
@@ -565,7 +562,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
         </div>
         <div class="ui-block-b">
-          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onclick="setDescription();">
+          <a id="confirm-meal-button" data-role="button" data-transition="fade" href="#pageEnd" onClick="setDescription();">
             Confirm Meal
           </a>
         </div>
