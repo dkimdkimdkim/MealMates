@@ -301,10 +301,10 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </li>
           </ul>
         </div>
-        <h2 id="select-time-header">
+        <h2 id="select-time-header" style="margin-bottom:13px">
           Select a date and time that works for you:
         </h2>
-        <h3 id="available-header">
+        <h4 id="available-header">
           On which date should the meal take place?
         </h3>
         <div data-role="fieldcontain">
