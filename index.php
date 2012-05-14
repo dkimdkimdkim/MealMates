@@ -365,9 +365,10 @@ while($row = mysql_fetch_assoc($mealresult)) {
         <div class="ui-grid-a">
           <div class="ui-block-a">
             <div>
-              <h2>
-                Places to be added
-              </h2>
+              <h3 style="margin-top: 10px;
+margin-bottom: 10px;">
+                Add locations!
+              </h3>
             </div>
           </div>
     <div class="scrollgrid ui-btn-corner-all">
@@ -506,9 +507,10 @@ while($row = mysql_fetch_assoc($mealresult)) {
       <div class="ui-grid-a">
         <div class="ui-block-a">
           <div>
-            <h2>
+            <h3 style="margin-top: 10px;
+margin-bottom: 10px;">
               Invite people!
-            </h2>
+            </h3>
           </div>
         </div>
         </div>
@@ -684,7 +686,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               </div>
             </td>
             <td>
-              <div class="ui-block-a">
+              <div class="search ui-block-a" style="width:100%;">
                 <a id="change" data-role="button" data-transition="fade" href="#When">
                   Change
                 </a>
@@ -704,7 +706,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               </div>
             </td>
             <td>
-              <div class="ui-block-a">
+              <div class="search ui-block-a" style="width:100%;">
                 <a id="change" data-role="button" data-transition="fade" href="#Where">
                   Change
                 </a>
@@ -722,7 +724,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               </div>
             </td>
             <td>
-              <div class="ui-block-a">
+              <div class="search ui-block-a" style="width:100%;">
                 <a id="change" data-role="button" data-transition="fade" href="#Who">
                   Change
                 </a>
@@ -738,7 +740,10 @@ while($row = mysql_fetch_assoc($mealresult)) {
                 <div>
                   <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                      <textarea id="description-textarea" rows="2" cols="6" placeholder="Optional: Give your meal a description so others know what's going on!" value="" type="text"></textarea>
+                      <textarea id="description-textarea" rows="2" cols="6" placeholder="Optional: Give your meal a description so others know what's going on!" value="" type="text" style="position: relative;
+float: left;
+width: 330%;
+height: 80px;"></textarea>
                     </fieldset>
                   </div>
                 </div>
