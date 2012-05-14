@@ -59,28 +59,30 @@ function setDescription() {
 
 function displayTime() {
   if(mealDate == null){
-    $('#display-time').innerHTML = "Go to the When page to set a Date for the Meal!";
+    $('#display-time').html("Go to the When page to set a Date for the Meal!");
   }
   else if(mealTime == null){
-    $('#display-time').innerHTML = "Go to the When page to set a Time for the Meal!";
+    $('#display-time').html("Go to the When page to set a Time for the Meal!");
   }
   else{
-    $('#display-time').innerHTML = "at " + mealTime + "on " + mealDate;
+    console.log("Meal time: " + mealTime + " Meal date: " + mealDate);
+    $('#display-time').html("at " + mealTime + "on " + mealDate);
   }
 }
 
 function displayLocation() {
   if(mealPlace == null){
-    $('#display-location').innerHTML = "Go to the Where page to set a Location for the Meal!";
+    $('#display-location').html("Go to the Where page to set a Location for the Meal!");
   }
   else{
-    $('#display-location').innerHTML = mealPlace;
+    console.log("Meal Place: " + mealPlace);
+    $('#display-location').html(mealPlace);
   }
 }
 
 function displayInvitees() {
   if(mealInvitees == null){
-    $('#display-invitees').innerHTML = "Go to the Who page to invite people to the Meal!";
+    $('#display-invitees').html("Go to the Who page to invite people to the Meal!");
   }
   else{
     inviteeString = "";
@@ -89,7 +91,8 @@ function displayInvitees() {
         inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
       }	
     }
-    $('#display-invitees').innerHTML = inviteeString;
+    console.log("Invitee String: " + inviteeString);
+    $('#display-invitees').html(inviteeString);
   }
 }
 function postData() {
@@ -146,12 +149,12 @@ $(function() {
     }
   });
 
-  /*$('.button-confirm').click(function() {
+  $('.button-confirm').click(function() {
 	console.log("Confirm button clicked");
 	displayTime();
 	displayLocation();
 	displayInvitees();
-});*/
+  });
 
 
 
@@ -286,7 +289,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -339,7 +342,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
+            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -480,7 +483,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" href="#Confirm" data-theme="" data-icon=""  onClick="displayTime(); displayLocation(); displayInvitees();">
+          <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
             Confirm
           </a>
           </li>
@@ -623,7 +626,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm"  onClick="displayTime(); displayLocation(); displayInvitees();">
+      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm">
               Save and Continue
       </a>
   </div>
@@ -652,7 +655,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active" onClick="displayTime(); displayLocation(); displayInvitees();">
+          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
             Confirm
           </a>
           </li>
