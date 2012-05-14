@@ -204,9 +204,15 @@ $(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
     window.location.href = '/mealmates/';
   });
-  $('#cancel-meal').click(function() {
+  $('.cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
+    $.post(
+      'remove_meal.php',
+    {
+      meal_id : $(this).attr('value')
+    });
     window.location.href = '/mealmates/';
+
   });
 });
     </script>
@@ -540,7 +546,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aviv_cuckierman">
+    <a data-role="button" class="invitee-button" data-inline="true" data-mini="true" value="aviv_cukierman">
             <table>
               <tr><td><img src="images/aviv_cukierman.jpg" alt="Aviv Cukierman" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Aviv Cukierman </td></tr>
@@ -904,6 +910,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
               Invitees
             </h2>
           </td>
+          <td>
 <?php
 
   $inviteequery = "SELECT inv.invitee as person from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . " and m.meal_id = inv.meal_id;";
@@ -911,12 +918,11 @@ while($row = mysql_fetch_assoc($mealresult)) {
 
   while($inviteerow = mysql_fetch_assoc($inviteemappingresult)) {
 ?>
-          <td>
           <img src="images/<?php echo $inviteerow['person']; ?>.jpg" alt="image" width="50px" height="50px" />
-            </td>
 <?php
   }
 ?>
+           </td>
         </tr>
         <tr>
           <div data-role="fieldcontain">
@@ -945,7 +951,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </tr>
         <tr>
           <td>
-            <a id="cancel-meal" data-role="button" data-transition="fade" href="#pageend2">
+          <a class="cancel-meal" data-role="button" data-transition="fade" href="#" value="<?php echo $row['meal_id']; ?>">
               Cancel Meal
             </a>
           </td>
