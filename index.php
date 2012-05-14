@@ -363,7 +363,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   <table>
 
        <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aj_perez">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aj_perez" onClick="setPlace('flour');">
             <table>
               <tr><td><img src="images/flour.jpg" alt="Flour" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Flour </td></tr>
@@ -371,7 +371,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
        </td>
        <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="akira_monri">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="akira_monri" onclick="setPlace('bertuccis');">
             <table>
               <tr><td><img src="images/bertuccis2.jpg" alt="Bertucci's" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Bertucci's </td></tr>
@@ -379,7 +379,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
        </td>
        <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="alex_wang">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="alex_wang" onclick="setPlace('kendall_kitchen');">
             <table>
               <tr><td><img src="images/kendall.jpg" alt="Kendall Kitchen" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Kendall Kitchen </td></tr>
@@ -387,7 +387,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aviv_cukierman">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="aviv_cukierman" onclick="setPlace('unos');">
             <table>
               <tr><td><img src="images/unos.jpg" alt="UNO'S" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> UNO's </td></tr>
@@ -396,14 +396,14 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
 
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="brian_bell">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="brian_bell" onclick="setPlace('au_bon_pain');">
             <table>
               <tr><td><img src="images/abp.jpg" alt="Au Bon Pain" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Au Bon Pain </td></tr>
     </table>
       </td>
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="chris_haid">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="chris_haid" onclick="setPlace('cuchi_cuchi');">
             <table>
               <tr><td><img src="images/cuchi-cuchi.jpg" alt="Cuchi Cuchi" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Cuchi Cuchi </td></tr>
@@ -411,7 +411,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="david_kim">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="david_kim" onclick="setPlace('friendly_toast');">
     <table>
               <tr><td><img src="images/friendlytoast.jpg" alt="Friendly Toast" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Friendly Toast </td></tr>
@@ -419,7 +419,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
     </a>
       </td>
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="feynman_liang">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="feynman_liang"  onclick="setPlace('capital_grill');">
             <table>
               <tr><td><img src="images/capitalgrille.jpg" alt="Capital Grill" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Capital Grill </td></tr>
@@ -428,7 +428,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </td>
 
       <td class="item">
-    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="jake_varley">
+    <a data-role="button" class="location-button" data-inline="true" data-mini="true" value="jake_varley" onclick="setPlace('tapeo');">
             <table>
               <tr><td><img src="images/tapeo.jpg" alt="Tapeo" height="50px" width="50px"></img></td></tr>
               <tr><td class="draggableText"> Tapeo </td></tr>
