@@ -168,7 +168,16 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <h3><?php echo date("m/d/Y", strtotime($row['date']));?></h3>
           <div class="meal-containeri ui-grid-a">
             <div class="restaurant-button-container ui-block-a">
-              <a class="restaurant-button" href="#<?php echo $row['restaurant']; ?>" data-theme="b" data-role="button" data-inline="true"><?php echo $row['restaurant']; ?></a>
+              <a class="restaurant-button" href="#
+
+<?php
+  $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+  $restaurantmappingresult = mysql_query($restaurantquery);
+  $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
+  echo $restaurantrow['restaurant_name'];
+?>
+
+" data-theme="b" data-role="button" data-inline="true"><?php echo $restaurantrow['restaurant_name']; ?></a>
             </div>
             <span class="time-window ui-block-b">at <strong><?php echo date("g:i a", strtotime($row['start_time'])); ?></strong></span>
           </div>  
@@ -622,13 +631,19 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </li>
   <li>
   <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
-  <?php echo $row['restaurant']; ?>
+<?php
+  //echo $row['restaurant'];
+  $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+  $restaurantmappingresult = mysql_query($restaurantquery);
+  $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
+  echo $restaurantrow['restaurant_name'];
+?>
   </a>
     </li>
     </ul>
     </div>
     <h1>
-    <?php echo $row['restaurant']; ?>
+    <?php echo $restaurantrow['restaurant_name']; ?>
   </h1>
     <h2>
     Time
@@ -649,7 +664,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
       </h2>
       <div>
         <b>
-          <?php echo $row['restaurant']; ?>
+          <?php echo $restaurantrow['restaurant_name']; ?>
         </b>
       </div>
       <h2>
