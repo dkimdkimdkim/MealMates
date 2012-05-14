@@ -72,7 +72,7 @@ $(function() {
   });
 
   $('.location-button').click(function() {
-	  if(!$(this).hasClass('deactivated')){
+	  if(!$(this).hasClass('ui-state-disabled')){
 		  $(this).toggleClass('selected');
 		  if($(this).hasClass('selected')){
 		  	setPlace($(this).val());
@@ -81,7 +81,7 @@ $(function() {
 		  	setPlace(null);
 		  }
 		  $('.location-button').toggleClass('deactivated');
-		  $(this).toggleClass('deactivated');
+		  $(this).toggleClass('ui-state-disabled');
 	  }
   });
 
