@@ -59,35 +59,28 @@ function setDescription() {
 
 function displayTime() {
   if(mealDate == null){
-    return "Go to the When page to set a Date for the Meal!";
+    $('#display-time').innerHTML = "Go to the When page to set a Date for the Meal!";
   }
   else if(mealTime == null){
-    return "Go to the When page to set a Time for the Meal!";
+    $('#display-time').innerHTML = "Go to the When page to set a Time for the Meal!";
   }
   else{
-    return "at " + mealTime + "on " + mealDate;
+    $('#display-time').innerHTML = "at " + mealTime + "on " + mealDate;
   }
-  if(mealDate == null){
-    return "Go to the When page to set a Date for the Meal!";
-  }
-  else if(mealTime == null){
-    return "Go to the When page to set a Time for the Meal!";
-  }
-  else{
-    return "at " + mealTime + "on " + mealDate;
-  }
-
 }
 
 function displayLocation() {
   if(mealPlace == null){
-    return "Go to the Where page to set a Location for the Meal!";
+    $('#display-location').innerHTML = "Go to the Where page to set a Location for the Meal!";
+  }
+  else{
+    $('#display-location').innerHTML = mealPlace;
   }
 }
 
 function displayInvitees() {
   if(mealInvitees == null){
-    return "Go to the Who page to invite people to the Meal!";
+    $('#display-invitees').innerHTML = "Go to the Who page to invite people to the Meal!";
   }
   else{
     inviteeString = "";
@@ -96,6 +89,7 @@ function displayInvitees() {
         inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' alt='" + mealInvitees[invitee] + "' width='50px' height='50px'/>");
       }	
     }
+    $('#display-invitees').innerHTML = inviteeString;
   }
 }
 function postData() {
@@ -150,6 +144,12 @@ $(function() {
       $('.location-button').toggleClass('ui-state-disabled');
       $(this).toggleClass('ui-state-disabled');
     }
+  });
+
+  $('.button-confirm').click(function() {
+	displayTime();
+	displayLocation();
+	displayInvitees();
   });
 
 
@@ -285,7 +285,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a href="#Confirm" data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -338,7 +338,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
             </a>
             </li>
             <li>
-            <a href="#Confirm"  data-theme="" data-icon="">
+            <a class="button-confirm" href="#Confirm"  data-theme="" data-icon="">
               Confirm
             </a>
             </li>
@@ -479,7 +479,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a href="#Confirm" data-theme="" data-icon="">
+          <a class="button-confirm" href="#Confirm" data-theme="" data-icon="">
             Confirm
           </a>
           </li>
@@ -622,7 +622,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
         </div>
         <div>
-      <a data-role="button" data-transition="fade" href="#Confirm">
+      <a class="button-confirm" data-role="button" data-transition="fade" href="#Confirm">
               Save and Continue
       </a>
   </div>
@@ -651,7 +651,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
+          <a class="button-confirm" class="active-top-button" href="#Confirm" data-theme="" data-icon="" class="ui-btn-active">
             Confirm
           </a>
           </li>
@@ -674,11 +674,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
                   Time:
                 </h2>
                 <div>
-      <b>
-<script type="text/javascript">
-document.write(displayTime());
-</script>
-
+      <b id="display-time">
       </b>
                 </div>
               </div>
@@ -698,10 +694,7 @@ document.write(displayTime());
                   Location:
                 </h2>
                 <div>
-      <b>
-<script type="text/javascript">
-document.write(displayLocation());
-</script>
+      <b id="display-location">
       </b>
                 </div>
               </div>
@@ -720,10 +713,7 @@ document.write(displayLocation());
                 <h2>
                   Invitees:
                 </h2>
-    <div>
-<script type="text/javascript">
-document.write(displayInvitees());
-</script>
+    <div id="display-invitees">
     </div>
               </div>
             </td>
