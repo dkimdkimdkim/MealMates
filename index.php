@@ -346,7 +346,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </div>
         </div>
         </div>
-  <div class="scrollgrid">
+  <div class="scrollgrid ui-btn-corner-all">
   <table>
     
        <td>
