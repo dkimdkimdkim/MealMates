@@ -31,7 +31,7 @@ function debugData() {
   console.log('mealDate: ' + mealDate);
   console.log('mealTime: ' + mealTime);
   console.log('mealPlace: ' + mealPlace);
-  console.log('mealInvitees: ' + mealInvitees);
+  console.log(mealInvitees);
   console.log('mealDescription: ' + mealDescription);
 }
 
@@ -110,7 +110,7 @@ function postData() {
 $(function() {
 
   $('#start-over-button').click(function() {
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    window.location.href = '/mealmates/';
   });
 
   /**
@@ -127,7 +127,7 @@ $(function() {
   });
 
   /*
-  $('.invitee-button').click(function() {
+    $('.invitee-button').click(function() {
     if(!$(this).hasClass('selected')) {
     }
     else {
@@ -202,11 +202,11 @@ $(function() {
   });
   $('#confirm-meal-button').click(function() {
     alert('Success! Everyone you invited will see your meal invitation on your homepage.');
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    //window.location.href = '/mealmates/';
   });
   $('#cancel-meal').click(function() {
     alert('Your meal has been cancelled.  Everyone you invited will be notified of the cancellation');
-    window.location.href = 'dmwkim.scripts.mit.edu/mealmates/';
+    //window.location.href = '/mealmates/';
   });
 });
     </script>
@@ -766,6 +766,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
 
 <?php
 // dynamically generate pages for each meal
+
 $querytemplate = 'SELECT * FROM meals ORDER BY date, start_time;';
 $queryreal = sprintf($querytemplate);
 
@@ -774,7 +775,7 @@ $link = mysql_connect('sql.mit.edu', 'dmwkim', '97baystate')
 mysql_select_db('dmwkim+mealmates') or die('Could not select database');
 
 $mealresult = mysql_query($queryreal) or die('Could not select meals table');
-
+/*
 while($row = mysql_fetch_assoc($mealresult)) {
 ?>
   <div data-role="page" id="<?php echo $row['restaurant']; ?>">
@@ -787,13 +788,13 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </a>
   </li>
   <li>
-  <a class="active-top-button" href="<?php echo $row['restaurant']; ?>" data-theme="" data-icon="" class="ui-btn-active">
+  <a class="active-top-button" href="<?php echo $row['restaurant']; ?>2" data-theme="" data-icon="" class="ui-btn-active">
 <?php
   //echo $row['restaurant'];
   $restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
   $restaurantmappingresult = mysql_query($restaurantquery);
   $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
-  echo $restaurantrow['restaurant_name'];
+  //echo $restaurantrow['restaurant_name'];
 ?>
   </a>
     </li>
@@ -832,8 +833,15 @@ while($row = mysql_fetch_assoc($mealresult)) {
   </div>
 <?php
 }
+ */
+
+$restaurantquery = 'select restaurant_name from restaurant_id_mappings where restaurant_id=\'' . $row['restaurant'] . '\';';
+$restaurantmappingresult = mysql_query($restaurantquery);
+$restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
+
+while($row = mysql_fetch_assoc($mealresult)) {
 ?>
-<!-  <div data-role="page" id="page9">
+  <div data-role="page" id="<?php echo $row['restaurant']; ?>">
     <div data-role="content">
       <div data-role="navbar" data-iconpos="top">
         <ul>
@@ -843,14 +851,14 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </a>
           </li>
           <li>
-          <a class="active-top-button" href="#FamilyDinner" data-theme="" data-icon="" class="ui-btn-active">
-            Family Dinner
+          <a class="active-top-button" href="<?php echo $row['restaurant']; ?>" data-theme="" data-icon="" class="ui-btn-active">
+<?php echo $restaurantrow['restaurant_name']; ?>
           </a>
           </li>
         </ul>
       </div>
       <h1 class="title">
-        Family Dinner
+<?php echo $restaurantrow['restaurant_name']; ?>
       </h1>
 
       <table>
@@ -863,7 +871,12 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <td>
             <div class="content1">
               <b>
-                7:00 p.m. Tomorrow
+<?php
+  echo date("g:i a", strtotime($row['start_time'])); 
+  echo ' on ';
+  echo date("m-d-Y", strtotime($row['date']));
+?>
+                
                 <br />
               </b>
             </div>
@@ -878,7 +891,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           <td>
             <div>
               <b>
-                &nbsp; &nbsp; &nbsp;Oishii
+<?php echo $restaurantrow['restaurant_name']; ?>
               </b>
             </div>
           </td>
@@ -889,9 +902,20 @@ while($row = mysql_fetch_assoc($mealresult)) {
               Invitees
             </h2>
           </td>
+<?php
+  
+  $inviteequery = "SELECT inv.invitee from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . ";";
+    
+  $inviteemappingresult = mysql_query($restaurantquery);
+
+while($inviteerow = mysql_fetch_assoc($inviteemappingresult)) {
+?>
           <td>
-            <img src="images/david_kim.jpg" alt="image" width="50px" height="50px" />
-          </td>
+          <img src="images/<?php echo $inviteerow['invitee']; ?>.jpg" alt="image" width="50px" height="50px" />
+            </td>
+<?php
+  }
+?>
         </tr>
         <tr>
           <div data-role="fieldcontain">
@@ -927,6 +951,9 @@ while($row = mysql_fetch_assoc($mealresult)) {
         </tr>
       </table>
     </div>
-  </div>  
+  </div>
+<?php
+}
+?>
 </body>
 </html>
