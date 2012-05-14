@@ -80,11 +80,8 @@ $(function() {
 		  else{
 		  	setPlace(null);
 		  }
-		  for(loc: $('.loction-button')){
-		  	if(loc != this){
-				loc.toggleClass('deactivated');
-			}
-		  }
+		  $('.location-button').toggleClass('deactivated');
+		  $(this).toggleClass('deactivated');
 	  }
   });
 

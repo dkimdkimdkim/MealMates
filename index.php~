@@ -32,8 +32,8 @@ function setDate() {
 function setTime() {
   mealTime = $('#from-time-input').val();
 }
-function setPlace() {
-  mealPlace = $(this).val();
+function setPlace(place) {
+  mealPlace = place;
 }
 function addInvitee(invitee) {
   mealInvitees[invitee] = true;
@@ -70,6 +70,25 @@ $(function() {
       console.log('off');
     }
   });
+
+  $('.location-button').click(function() {
+	  if(!$(this).hasClass('deactivated')){
+		  $(this).toggleClass('selected');
+		  if($(this).hasClass('selected')){
+		  	setPlace($(this).val());
+		  }
+		  else{
+		  	setPlace(null);
+		  }
+		  for(loc: $('.loction-button')){
+		  	if(loc != this){
+				loc.toggleClass('deactivated');
+			}
+		  }
+	  }
+  });
+
+
 
   /**
    * Load welcome screen from PHP backend.
