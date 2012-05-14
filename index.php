@@ -66,7 +66,7 @@ function displayTime() {
   }
   else{
     console.log("Meal time: " + mealTime + " Meal date: " + mealDate);
-    $('#display-time').html("at " + mealTime + "on " + mealDate);
+    $('#display-time').html("at " + mealTime + " on " + mealDate);
   }
 }
 
@@ -86,9 +86,9 @@ function displayInvitees() {
   }
   else{
     inviteeString = "";
-    for(invitee in mealInvitees){
-      if(mealInvitees[invitee] != null){
-        inviteeString.concat("<img src='images/" + mealInvitees[invitee] + ".jpg' width='50px' height='50px'/>");
+    for(var i =0; i < mealInvitees.length; i++){
+      if(mealInvitees[i] != null){
+        inviteeString = inviteeString.concat("<img src='images/" + mealInvitees[i] + ".jpg' width='50px' height='50px'/>");
       }	
     }
     console.log("Invitee String: " + inviteeString);
