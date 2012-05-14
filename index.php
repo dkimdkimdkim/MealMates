@@ -839,6 +839,8 @@ $restaurantquery = 'select restaurant_name from restaurant_id_mappings where res
 $restaurantmappingresult = mysql_query($restaurantquery);
 $restaurantrow = mysql_fetch_assoc($restaurantmappingresult);
 
+echo $restaurantrow['restaurant_name'];
+
 while($row = mysql_fetch_assoc($mealresult)) {
 ?>
   <div data-role="page" id="<?php echo $row['restaurant']; ?>">
@@ -904,8 +906,7 @@ while($row = mysql_fetch_assoc($mealresult)) {
           </td>
 <?php
   
-  $inviteequery = "SELECT inv.invitee from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . ";";
-    
+  $inviteequery = "SELECT inv.invitee from invitees inv, meals m WHERE m.meal_id = " . $row['meal_id'] . " and m.meal_id = inv.meal_id;";
   $inviteemappingresult = mysql_query($restaurantquery);
 
 while($inviteerow = mysql_fetch_assoc($inviteemappingresult)) {
